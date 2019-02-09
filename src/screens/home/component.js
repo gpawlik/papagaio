@@ -17,7 +17,7 @@ export class HomeComponent extends React.PureComponent<Props> {
         doSomeAction({ offset: id + 1, name: 'foo' });
     };
 
-    handleShowModal = () => navigate.showModal(routes.about);
+    handleShowFilters = () => navigate.showModal(routes.filters);
 
     handleShowScreen = () => navigate.push(routes.another);
 
@@ -28,7 +28,7 @@ export class HomeComponent extends React.PureComponent<Props> {
                 <Text message={{ ...messages.counter, values: { id } }} />
                 <ButtonBox>
                     <Button message={messages.button} onPress={this.handleOnPress} />
-                    <Button message={messages.goToModal} onPress={this.handleShowModal} />
+                    <Button message={messages.goToFilters} onPress={this.handleShowFilters} />
                     <Button message={messages.goToScreen} onPress={this.handleShowScreen} />
                 </ButtonBox>
             </Screen>

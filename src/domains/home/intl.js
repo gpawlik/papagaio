@@ -14,9 +14,9 @@ export const messages = defineMessages({
         id: 'home.button',
         defaultMessage: 'Add +',
     },
-    goToModal: {
-        id: 'home.go-to-modal',
-        defaultMessage: 'Go to Modal',
+    goToFilters: {
+        id: 'home.go-to-filters',
+        defaultMessage: 'Go to Filters',
     },
     goToScreen: {
         id: 'home.go-to-screen',

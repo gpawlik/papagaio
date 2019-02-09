@@ -26,6 +26,8 @@ export class HomeComponent extends React.PureComponent<Props> {
 
     handleShowUserInfo = () => navigate.push(routes.userInfo);
 
+    handleCreateEvent = () => navigate.showModal(routes.eventCreate);
+
     render() {
         const { id, events, isLoadingEvents } = this.props;
 
@@ -43,6 +45,7 @@ export class HomeComponent extends React.PureComponent<Props> {
                     <Button message={messages.button} onPress={this.handleOnPress} />
                     <Button message={messages.goToFilters} onPress={this.handleShowFilters} />
                     <Button message={messages.goToUserInfo} onPress={this.handleShowUserInfo} />
+                    <Button message={messages.goToEventCreate} onPress={this.handleCreateEvent} />
                 </ButtonBox>
             </Screen>
         );

@@ -9,6 +9,9 @@ type Props = {|
 |};
 
 export const Text = ({ message }: Props) => {
+    if (!message) {
+        return null;
+    }
     if (!message.id) {
         return <StyledText>{message}</StyledText>;
     }

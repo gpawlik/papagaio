@@ -4,6 +4,7 @@ import { all, fork } from 'redux-saga/effects';
 
 import { homeSagas } from '~/domains/home/sagas';
 import { userSagas } from '~/domains/user/sagas';
+import { eventsSagas } from '~/domains/events/sagas';
 
 const forkSagas = R.compose(
     all,
@@ -12,5 +13,5 @@ const forkSagas = R.compose(
 );
 
 export default function* root(): Generator<*, *, *> {
-    yield forkSagas([homeSagas, userSagas]);
+    yield forkSagas([homeSagas, userSagas, eventsSagas]);
 }

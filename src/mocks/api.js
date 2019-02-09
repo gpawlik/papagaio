@@ -1,8 +1,11 @@
 // @flow
-export const fetchGet = (endpoint: string) => {
-    if (endpoint === 'get-events') {
-        return '[{ "id": 1, "name": "Event A" }]';
-    }
+import { events } from './response/get-events';
 
-    return '[]';
+export const fetchGet = (endpoint: string) => {
+    switch (endpoint) {
+        case 'get-events':
+            return JSON.stringify(events);
+        default:
+            return '[]';
+    }
 };

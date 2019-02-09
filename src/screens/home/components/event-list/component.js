@@ -11,7 +11,9 @@ import type { Props } from './types';
 
 export class EventListComponent extends React.PureComponent<Props> {
     componentDidMount = () => {
-        this.props.fetchEvents();
+        const { events, fetchEvents } = this.props;
+
+        !events.size && fetchEvents();
     };
 
     handleOpenEvent = () => navigate.push(routes.eventDetails);

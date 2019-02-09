@@ -8,6 +8,7 @@ import { Button } from '~/components/button';
 import { messages } from '~/domains/home/intl';
 
 import { EventList } from './components/event-list';
+import { EventMap } from './components/event-map';
 
 import { ButtonBox } from './styles';
 import type { Props } from './types';
@@ -34,7 +35,7 @@ export class HomeComponent extends React.PureComponent<Props, State> {
 
         return (
             <Screen title={messages.title} hideHeader>
-                {isListView ? <EventList /> : null}
+                {isListView ? <EventList /> : <EventMap />}
 
                 <ButtonBox>
                     <Button message={messages.button} onPress={this.handleToggleView} />

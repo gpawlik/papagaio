@@ -8,6 +8,9 @@ type Props = {|
     message: $npm$ReactIntl$MessageDescriptor,
 |};
 
-export const Text = ({ message }: Props) => (
-    <FormattedMessage {...message}>{(m: string) => <StyledText>{m}</StyledText>}</FormattedMessage>
-);
+export const Text = ({ message }: Props) => {
+    if (!message.id) {
+        return <StyledText>{message}</StyledText>;
+    }
+    return <FormattedMessage {...message}>{(m: string) => <StyledText>{m}</StyledText>}</FormattedMessage>;
+};

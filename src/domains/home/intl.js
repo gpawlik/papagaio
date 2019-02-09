@@ -18,8 +18,8 @@ export const messages = defineMessages({
         id: 'home.go-to-filters',
         defaultMessage: 'Go to Filters',
     },
-    goToScreen: {
-        id: 'home.go-to-screen',
-        defaultMessage: 'Go to Screen',
+    goToUserInfo: {
+        id: 'home.go-to-user-info',
+        defaultMessage: 'Go to User Info',
     },
 });

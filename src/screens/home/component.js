@@ -19,7 +19,7 @@ export class HomeComponent extends React.PureComponent<Props> {
 
     handleShowFilters = () => navigate.showModal(routes.filters);
 
-    handleShowScreen = () => navigate.push(routes.another);
+    handleShowUserInfo = () => navigate.push(routes.userInfo);
 
     render() {
         const { id } = this.props;
@@ -29,7 +29,7 @@ export class HomeComponent extends React.PureComponent<Props> {
                 <ButtonBox>
                     <Button message={messages.button} onPress={this.handleOnPress} />
                     <Button message={messages.goToFilters} onPress={this.handleShowFilters} />
-                    <Button message={messages.goToScreen} onPress={this.handleShowScreen} />
+                    <Button message={messages.goToUserInfo} onPress={this.handleShowUserInfo} />
                 </ButtonBox>
             </Screen>
         );

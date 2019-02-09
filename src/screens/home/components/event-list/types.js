@@ -1,10 +1,11 @@
 // @flow
 export type StateProps = {|
-    id: number,
+    events: any,
+    isLoadingEvents: boolean,
 |};
 
 export type DispatchProps = {|
-    doSomeAction: ({| offset: number, name: string |}) => void,
+    fetchEvents: () => void,
 |};
 
 export type Props = StateProps & DispatchProps;

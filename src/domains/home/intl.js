@@ -6,13 +6,9 @@ export const messages = defineMessages({
         id: 'home.title',
         defaultMessage: 'Home',
     },
-    counter: {
-        id: 'home.counter',
-        defaultMessage: 'Sample value: {id}',
-    },
     button: {
-        id: 'home.button',
-        defaultMessage: 'Add +',
+        id: 'home.change-view',
+        defaultMessage: 'Change View',
     },
     goToFilters: {
         id: 'home.go-to-filters',

@@ -5,7 +5,6 @@ import * as routes from '~/constants/routes';
 import { navigate } from '~/navigation';
 import { Screen } from '~/components/screen';
 import { Button } from '~/components/button';
-import { Text } from '~/components/text';
 import { messages } from '~/domains/home/intl';
 
 import { EventList } from './components/event-list';
@@ -13,11 +12,16 @@ import { EventList } from './components/event-list';
 import { ButtonBox } from './styles';
 import type { Props } from './types';
 
-export class HomeComponent extends React.PureComponent<Props> {
-    handleOnPress = () => {
-        const { id, doSomeAction } = this.props;
-        doSomeAction({ offset: id + 1, name: 'foo' });
+type State = {
+    isListView: boolean,
+};
+
+export class HomeComponent extends React.PureComponent<Props, State> {
+    state = {
+        isListView: true,
     };
+
+    handleToggleView = () => this.setState((state: State) => ({ isListView: !state.isListView }));
 
     handleShowFilters = () => navigate.showModal(routes.filters);
 
@@ -26,16 +30,14 @@ export class HomeComponent extends React.PureComponent<Props> {
     handleCreateEvent = () => navigate.showModal(routes.eventCreate);
 
     render() {
-        const { id } = this.props;
+        const { isListView } = this.state;
 
         return (
             <Screen title={messages.title} hideHeader>
-                <Text message={{ ...messages.counter, values: { id } }} />
-
-                <EventList />
+                {isListView ? <EventList /> : null}
 
                 <ButtonBox>
-                    <Button message={messages.button} onPress={this.handleOnPress} />
+                    <Button message={messages.button} onPress={this.handleToggleView} />
                     <Button message={messages.goToFilters} onPress={this.handleShowFilters} />
                     <Button message={messages.goToUserInfo} onPress={this.handleShowUserInfo} />
                     <Button message={messages.goToEventCreate} onPress={this.handleCreateEvent} />

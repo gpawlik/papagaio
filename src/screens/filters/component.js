@@ -1,8 +1,7 @@
 // @flow
 import * as React from 'react';
 
-import { navigate } from '~/navigation';
-import { Screen } from '~/components/screen';
+import { Modal } from '~/components/modal';
 import { Button } from '~/components/button';
 import { Text } from '~/components/text';
 
@@ -16,17 +15,15 @@ export class FiltersComponent extends React.PureComponent<Props> {
         this.props.selectFilter();
     };
 
-    handleBack = () => navigate.dismissModal();
-
     render() {
         return (
-            <Screen title={messages.title} backAction={this.handleBack} isModal>
+            <Modal title={messages.title}>
                 <Text message={messages.categoryTitle} />
                 <Text message={messages.timeTitle} />
                 <Text message={messages.locationTitle} />
 
                 <Button message={messages.buttonSave} onPress={this.handleOnPress} />
-            </Screen>
+            </Modal>
         );
     }
 }

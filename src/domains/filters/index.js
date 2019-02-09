@@ -1,13 +1,13 @@
 // @flow
 import { handleActions } from 'redux-actions';
-import { Map, List } from 'immutable';
+import { Map as ImutableMap, List } from 'immutable';
 import { handleReduce } from '../../utils/handle-reduce';
 
 import { selectFilter } from './actions';
 
-type State = ImmutableMapType<string, *>;
+type State = ImutableMap<string, *>;
 
-export const initialState: State = Map({
+export const initialState: State = ImutableMap({
     filters: List(),
 });
 

@@ -2,7 +2,8 @@
 const createEvent = (index: number) => {
     return {
         id: index,
-        name: `Event ${index}`,
+        title: `Event ${index}`,
+        description: 'Some description of the event',
         location: 'Porto, Portugal',
         timestamp: 1549717008861,
     };

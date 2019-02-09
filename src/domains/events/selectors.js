@@ -17,13 +17,19 @@ export const getIsLoadingEvents = createSelector(
 );
 
 export const getEventById = createSelector(
-    [getEventsState, getIdFromProps],
-    (state, id) => state.get(id, Map())
+    [getEvents, getIdFromProps],
+    (events, id) => {
+        console.log({ id });
+        return events.find(item => item.get('id') === id, null, Map());
+    }
 );
 
 export const getEventTitle = createSelector(
     [getEventById],
-    event => event.get('name', '')
+    event => {
+        console.log({ event: event.toJS() });
+        return event.get('title', '');
+    }
 );
 
 export const getEventDescription = createSelector(
@@ -38,5 +44,5 @@ export const getEventLocation = createSelector(
 
 export const getEventTime = createSelector(
     [getEventById],
-    event => event.get('time', '')
+    event => event.get('timestamp', '')
 );

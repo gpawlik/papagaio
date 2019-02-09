@@ -16,7 +16,7 @@ export class EventListComponent extends React.PureComponent<Props> {
         !events.size && fetchEvents();
     };
 
-    handleOpenEvent = () => navigate.push(routes.eventDetails);
+    handleOpenEvent = (id: string) => navigate.push(routes.eventDetails, { id });
 
     render() {
         const { events, isLoadingEvents } = this.props;
@@ -30,7 +30,7 @@ export class EventListComponent extends React.PureComponent<Props> {
 
                     return (
                         <TouchableOpacity key={id} onPress={() => this.handleOpenEvent(id)}>
-                            <Text message={event.get('name')} />
+                            <Text message={event.get('title')} />
                         </TouchableOpacity>
                     );
                 })}

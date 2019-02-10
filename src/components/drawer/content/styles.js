@@ -10,7 +10,7 @@ export const Container = styled.View`
     top: 0;
     bottom: 0;
     z-index: 999;
-    background-color: ${selectors.white};
+    background-color: ${selectors.chalk};
     align-items: stretch;
     align-content: stretch;
     left: -${({ style }) => style.width};

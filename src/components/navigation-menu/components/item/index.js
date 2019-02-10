@@ -1,10 +1,10 @@
 // @flow
 import * as React from 'react';
-import { TouchableOpacity } from 'react-native';
+//import { TouchableOpacity } from 'react-native';
 import type { $npm$ReactIntl$MessageDescriptor } from 'react-intl';
 
 import { Text } from '~/components/text';
-//import { Container } from './styles';
+import { Container } from './styles';
 
 type Props = {|
     message: $npm$ReactIntl$MessageDescriptor,
@@ -18,9 +18,9 @@ export class MenuItem extends React.PureComponent<Props> {
     render() {
         const { message } = this.props;
         return (
-            <TouchableOpacity onPress={this.onPress}>
+            <Container onPress={this.onPress}>
                 <Text message={message} />
-            </TouchableOpacity>
+            </Container>
         );
     }
 }

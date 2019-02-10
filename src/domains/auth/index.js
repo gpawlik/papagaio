@@ -1,10 +1,10 @@
 // @flow
 import { handleActions } from 'redux-actions';
-import { Map as ImutableMap } from 'immutable';
+import { Map as ImmutableMap } from 'immutable';
 
-type State = ImutableMap<string, *>;
+type State = ImmutableMap<string, *>;
 
-export const initialState: State = ImutableMap({
+export const initialState: State = ImmutableMap({
     isLoggedIn: false,
 });
 

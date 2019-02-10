@@ -8,6 +8,7 @@ export type StateProps = {|
     description: string,
     location: string,
     time: string,
+    content: string,
 |};
 
 export type Props = StateProps;

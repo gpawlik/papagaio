@@ -1,7 +1,8 @@
 // @flow
 import * as React from 'react';
-import { Text } from '~/components/text';
 import { type $npm$ReactIntl$MessageDescriptor } from 'react-intl';
+
+import { TextRegular2, TextMedium2 } from '~/components/text';
 
 import { Container } from './styles';
 
@@ -13,7 +14,7 @@ type Props = {|
 
 export const Cell = ({ title, description, onPress }: Props) => (
     <Container onPress={onPress}>
-        <Text message={title} />
-        {description ? <Text message={description} /> : null}
+        <TextMedium2 message={title} />
+        {description ? <TextRegular2 message={description} /> : null}
     </Container>
 );

@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import * as routes from '~/constants/routes';
 import { navigate } from '~/navigation';
-import { Text } from '~/components/text';
+import { TextRegular2 } from '~/components/text';
 import { Cell } from '~/components/cell';
 import { generalMessages } from '~/i18n/intl';
 
@@ -23,7 +23,7 @@ export class EventListComponent extends React.PureComponent<Props> {
         const { events, isLoadingEvents } = this.props;
 
         return isLoadingEvents ? (
-            <Text message={generalMessages.loading} />
+            <TextRegular2 message={generalMessages.loading} />
         ) : (
             <Container>
                 {events.map(event => {

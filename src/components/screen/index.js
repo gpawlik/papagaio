@@ -4,7 +4,7 @@ import type { $npm$ReactIntl$MessageDescriptor } from 'react-intl';
 
 import { Header } from '~/components/header';
 
-import { Container, Content } from './styles';
+import { Container, Content, ScrollContent } from './styles';
 
 type Props = {|
     children: React.Node,
@@ -12,14 +12,17 @@ type Props = {|
     backIcon?: string,
     hideHeader?: boolean,
     isFullWidth?: boolean,
+    hasContentScroll?: boolean,
     backAction?: () => Promise<*>,
 |};
 
-export const Screen = ({ children, title, backIcon, backAction, hideHeader, isFullWidth }: Props) => {
+export const Screen = ({ children, title, backIcon, backAction, hideHeader, isFullWidth, hasContentScroll }: Props) => {
+    const ViewContent = hasContentScroll ? ScrollContent : Content;
+
     return (
         <Container>
             {!hideHeader ? <Header title={title} backIcon={backIcon} backAction={backAction} /> : null}
-            <Content isFullWidth={isFullWidth}>{children}</Content>
+            <ViewContent isFullWidth={isFullWidth}>{children}</ViewContent>
         </Container>
     );
 };

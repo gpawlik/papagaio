@@ -46,3 +46,8 @@ export const getEventTime = createSelector(
     [getEventById],
     event => event.get('timestamp', '')
 );
+
+export const getEventContent = createSelector(
+    [getEventById],
+    event => event.get('content', '')
+);

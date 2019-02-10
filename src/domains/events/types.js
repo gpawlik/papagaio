@@ -5,4 +5,5 @@ export type Event = {
     description: string,
     location: string,
     timestamp: number,
+    content: string,
 };

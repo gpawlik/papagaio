@@ -13,3 +13,11 @@ export const Content = styled.View`
     align-items: stretch;
     padding-horizontal: ${({ isFullWidth }) => (isFullWidth ? 0 : selectors.ss6)};
 `;
+
+export const ScrollContent = styled.ScrollView.attrs({
+    contentContainerStyle: {
+        flex: 1,
+        alignItems: 'stretch',
+        paddingHorizontal: parseInt(selectors.ss6, 10),
+    },
+})``;

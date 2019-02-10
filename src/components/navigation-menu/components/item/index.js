@@ -3,7 +3,7 @@ import * as React from 'react';
 //import { TouchableOpacity } from 'react-native';
 import type { $npm$ReactIntl$MessageDescriptor } from 'react-intl';
 
-import { Text } from '~/components/text';
+import { TextRegular2 } from '~/components/text';
 import { Container } from './styles';
 
 type Props = {|
@@ -19,7 +19,7 @@ export class MenuItem extends React.PureComponent<Props> {
         const { message } = this.props;
         return (
             <Container onPress={this.onPress}>
-                <Text message={message} />
+                <TextRegular2 message={message} />
             </Container>
         );
     }

@@ -1,7 +1,8 @@
 // @flow
 import * as React from 'react';
-import { Text } from 'react-native';
-import { FormattedMessage, type $npm$ReactIntl$MessageDescriptor } from 'react-intl';
+import { type $npm$ReactIntl$MessageDescriptor } from 'react-intl';
+
+import { TextRegular2 } from '~/components/text';
 
 import { Container } from './styles';
 
@@ -13,6 +14,6 @@ type Props = {|
 
 export const Button = ({ message, isLast, onPress }: Props) => (
     <Container isLast={isLast} onPress={onPress}>
-        <FormattedMessage {...message}>{(m: string) => <Text>{m}</Text>}</FormattedMessage>
+        <TextRegular2 message={message} />
     </Container>
 );

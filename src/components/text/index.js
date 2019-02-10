@@ -9,6 +9,7 @@ import { selectors } from '~/theme/main';
 
 type Props = {|
     message: $npm$ReactIntl$MessageDescriptor | string,
+    style: Object,
 |};
 
 const TextBasic = styled.Text`
@@ -111,8 +112,12 @@ const getFontStyle = R.cond([
 ]);
 
 // TODO: integrate fonts
-const fontWeightRegular = css``;
-const fontWeightMedium = css``;
+const fontWeightRegular = css`
+    font-weight: 100;
+`;
+const fontWeightMedium = css`
+    font-weight: 500;
+`;
 
 const textAlignCenter = css`
     text-align: center;

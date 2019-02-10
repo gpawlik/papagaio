@@ -2,7 +2,7 @@
 import * as React from 'react';
 import type { $npm$ReactIntl$MessageDescriptor } from 'react-intl';
 
-import { TextRegular2 } from '~/components/text';
+import { TextMedium3 } from '~/components/text';
 import { BackButton } from './back-button';
 import { Container } from './styles';
 
@@ -19,7 +19,7 @@ export class Header extends React.PureComponent<Props> {
         return (
             <Container>
                 <BackButton backIcon={backIcon} backAction={backAction} />
-                {title ? <TextRegular2 message={title} /> : null}
+                {title ? <TextMedium3 message={title} /> : null}
             </Container>
         );
     }

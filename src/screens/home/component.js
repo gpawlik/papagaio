@@ -46,7 +46,7 @@ export class HomeComponent extends React.PureComponent<Props, State> {
                     <Button message={messages.goToFilters} onPress={this.handleShowFilters} />
                     <Button message={messages.goToEventCreate} onPress={this.handleCreateEvent} isLast />
                 </ButtonsBar>
-                <Content>{isListView ? <EventList /> : <EventMap />}</Content>
+                <Content isFullWidth>{isListView ? <EventList /> : <EventMap />}</Content>
             </Container>
         );
     }

@@ -20,13 +20,25 @@ const TextBasic = styled.Text`
         )(size)};
 `;
 
-export const TextDefault = ({ message }: Props) => {
+export const TextDefault = ({ message, style, ...rest }: Props) => {
     if (typeof message === 'string') {
-        return <TextBasic>{message}</TextBasic>;
+        return (
+            <TextBasic style={style} {...rest}>
+                {message}
+            </TextBasic>
+        );
     }
 
     if (isIntlDescriptor(message)) {
-        return <FormattedMessage {...message}>{(m: string) => <TextBasic>{m}</TextBasic>}</FormattedMessage>;
+        return (
+            <FormattedMessage {...message}>
+                {(m: string) => (
+                    <TextBasic style={style} {...rest}>
+                        {m}
+                    </TextBasic>
+                )}
+            </FormattedMessage>
+        );
     }
 
     return null;

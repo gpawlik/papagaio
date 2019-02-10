@@ -1,12 +1,12 @@
 // @flow
 import * as React from 'react';
 
-import { Text } from '~/components/text';
+import { TextRegular2 } from '~/components/text';
 
 type Props = {};
 
 export class EventMap extends React.PureComponent<Props> {
     render() {
-        return <Text message="MAP" />;
+        return <TextRegular2 message="MAP" />;
     }
 }

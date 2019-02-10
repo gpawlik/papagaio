@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import { Screen } from '~/components/screen';
-import { Text } from '~/components/text';
+import { TextRegular2 } from '~/components/text';
 
 import { messages } from '~/domains/events/intl';
 
@@ -14,11 +14,11 @@ export class EventDetailsComponent extends React.PureComponent<Props> {
 
         return (
             <Screen title={messages.eventDetailsTitle} hasContentScroll>
-                <Text message={title} />
-                <Text message={description} />
-                <Text message={location} />
-                <Text message={time} />
-                <Text message={content} />
+                <TextRegular2 message={title} />
+                <TextRegular2 message={description} />
+                <TextRegular2 message={location} />
+                <TextRegular2 message={time} />
+                <TextRegular2 message={content} />
             </Screen>
         );
     }

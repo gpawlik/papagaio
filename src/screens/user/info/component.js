@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { Screen } from '~/components/screen';
 import { Button } from '~/components/button';
-import { Text } from '~/components/text';
+import { TextRegular2 } from '~/components/text';
 
 import { messages } from '~/domains/user/intl';
 
@@ -22,14 +22,14 @@ export class UserInfoComponent extends React.PureComponent<Props> {
 
         return (
             <Screen title={messages.title}>
-                <Text message={messages.infoFirstName} />
-                <Text message={firstName} />
-                <Text message={messages.infoSecondName} />
-                <Text message={secondName} />
-                <Text message={messages.infoLocation} />
-                <Text message={location} />
-                <Text message={messages.infoActive} />
-                <Text message={activeString} />
+                <TextRegular2 message={messages.infoFirstName} />
+                <TextRegular2 message={firstName} />
+                <TextRegular2 message={messages.infoSecondName} />
+                <TextRegular2 message={secondName} />
+                <TextRegular2 message={messages.infoLocation} />
+                <TextRegular2 message={location} />
+                <TextRegular2 message={messages.infoActive} />
+                <TextRegular2 message={activeString} />
 
                 <Button message={messages.buttonToggle} onPress={this.handleOnPress} />
             </Screen>

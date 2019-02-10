@@ -1,8 +1,9 @@
 // @flow
 import * as React from 'react';
 
+import { generalIcons } from '~/constants/icons/general';
 import { Header } from '~/components/header';
-
+import { NavigationMenu } from '~/components/navigation-menu';
 import { Container, Content } from '~/components/screen/styles';
 import type { Props } from './types';
 
@@ -12,10 +13,11 @@ export class HomeScreenComponent extends React.PureComponent<Props> {
     };
 
     render() {
-        const { children, backIcon } = this.props;
+        const { children } = this.props;
         return (
             <Container>
-                <Header backIcon={backIcon} backAction={this.onPress} />
+                <NavigationMenu />
+                <Header backIcon={generalIcons.MENU} backAction={this.onPress} />
                 <Content>{children}</Content>
             </Container>
         );

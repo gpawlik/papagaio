@@ -11,14 +11,15 @@ type Props = {|
     title: $npm$ReactIntl$MessageDescriptor,
     backIcon?: string,
     hideHeader?: boolean,
+    isFullWidth?: boolean,
     backAction?: () => Promise<*>,
 |};
 
-export const Screen = ({ children, title, backIcon, backAction, hideHeader }: Props) => {
+export const Screen = ({ children, title, backIcon, backAction, hideHeader, isFullWidth }: Props) => {
     return (
         <Container>
             {!hideHeader ? <Header title={title} backIcon={backIcon} backAction={backAction} /> : null}
-            <Content>{children}</Content>
+            <Content isFullWidth={isFullWidth}>{children}</Content>
         </Container>
     );
 };

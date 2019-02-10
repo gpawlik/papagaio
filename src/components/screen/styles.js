@@ -10,6 +10,6 @@ export const Container = styled.View`
 
 export const Content = styled.View`
     flex: 1;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
+    padding-horizontal: ${({ isFullWidth }) => (isFullWidth ? 0 : selectors.ss6)};
 `;

@@ -1,13 +1,14 @@
 // @flow
 import * as React from 'react';
-import { TouchableOpacity, View } from 'react-native';
 
 import * as routes from '~/constants/routes';
 import { navigate } from '~/navigation';
 import { Text } from '~/components/text';
+import { Cell } from '~/components/cell';
 import { generalMessages } from '~/i18n/intl';
 
 import type { Props } from './types';
+import { Container } from './styles';
 
 export class EventListComponent extends React.PureComponent<Props> {
     componentDidMount = () => {
@@ -24,17 +25,20 @@ export class EventListComponent extends React.PureComponent<Props> {
         return isLoadingEvents ? (
             <Text message={generalMessages.loading} />
         ) : (
-            <View>
+            <Container>
                 {events.map(event => {
                     const id = event.get('id');
 
                     return id ? (
-                        <TouchableOpacity key={id} onPress={() => this.handleOpenEvent(id)}>
-                            <Text message={event.get('title', '')} />
-                        </TouchableOpacity>
+                        <Cell
+                            key={id}
+                            title={event.get('title', '')}
+                            description={event.get('description', '')}
+                            onPress={() => this.handleOpenEvent(id)}
+                        />
                     ) : null;
                 })}
-            </View>
+            </Container>
         );
     }
 }

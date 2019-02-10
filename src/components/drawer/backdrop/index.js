@@ -1,14 +1,13 @@
 // @flow
 import * as React from 'react';
 import { Animated, TouchableWithoutFeedback, BackHandler } from 'react-native';
-import { noop } from '~/core/utils/fp-helpers';
 
 import animate from './animation';
 import { Container } from './styles';
 
 type Props = {
     isVisible: boolean,
-    onHide: noop,
+    onHide: () => void,
 };
 
 type State = {
@@ -18,7 +17,7 @@ type State = {
 
 class Backdrop extends React.Component<Props, State> {
     state = {
-        opacity: new Animated.Value(0),
+        opacity: new Animated.Value(0.5),
         isAnimating: false,
     };
 

@@ -5,6 +5,7 @@ import * as routes from '~/constants/routes';
 import { navigate } from '~/navigation';
 import { Screen } from '~/components/screen';
 import { Button } from '~/components/button';
+import { NavigationMenu } from '~/components/navigation-menu';
 import { messages } from '~/domains/home/intl';
 
 import { EventList } from './components/event-list';
@@ -36,6 +37,7 @@ export class HomeComponent extends React.PureComponent<Props, State> {
 
         return (
             <Screen title={messages.title} hideHeader>
+                <NavigationMenu />
                 {isListView ? <EventList /> : <EventMap />}
 
                 <ButtonBox>

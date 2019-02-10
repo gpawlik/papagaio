@@ -10,14 +10,15 @@ import type { Props } from './types';
 
 export class EventDetailsComponent extends React.PureComponent<Props> {
     render() {
-        const { title, description, location, time } = this.props;
+        const { title, description, location, time, content } = this.props;
 
         return (
-            <Screen title={messages.eventDetailsTitle}>
+            <Screen title={messages.eventDetailsTitle} hasContentScroll>
                 <Text message={title} />
                 <Text message={description} />
                 <Text message={location} />
                 <Text message={time} />
+                <Text message={content} />
             </Screen>
         );
     }

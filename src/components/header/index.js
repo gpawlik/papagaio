@@ -7,9 +7,9 @@ import { BackButton } from './back-button';
 import { Container } from './styles';
 
 type Props = {|
-    title: $npm$ReactIntl$MessageDescriptor,
+    title?: $npm$ReactIntl$MessageDescriptor,
     backIcon?: string,
-    backAction?: () => Promise<*>,
+    backAction?: () => Promise<*> | void,
 |};
 
 export class Header extends React.PureComponent<Props> {

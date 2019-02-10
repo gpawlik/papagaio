@@ -2,8 +2,12 @@
 import { defineMessages } from 'react-intl';
 
 export const messages = defineMessages({
-    title: {
-        id: 'about.title',
+    userProfile: {
+        id: 'menu.user',
+        defaultMessage: 'User profile',
+    },
+    about: {
+        id: 'menu.about',
         defaultMessage: 'About',
     },
 });

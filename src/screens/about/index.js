@@ -2,8 +2,8 @@
 import * as React from 'react';
 
 import { navigate } from '~/navigation';
-import { Modal } from '~/components/modal';
-import { Button } from '~/components/button';
+import { Screen } from '~/components/screen';
+import { Text } from '~/components/text';
 import { messages } from '~/domains/about/intl';
 
 type Props = {};
@@ -13,9 +13,9 @@ export class About extends React.PureComponent<Props> {
 
     render() {
         return (
-            <Modal title={messages.title}>
-                <Button message={messages.buttonBack} onPress={this.handleOnPress} />
-            </Modal>
+            <Screen title={messages.title}>
+                <Text message="About screen" />
+            </Screen>
         );
     }
 }

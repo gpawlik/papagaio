@@ -15,7 +15,7 @@ import { Container, Content } from '~/components/screen/styles';
 import { EventList } from './components/event-list';
 import { EventMap } from './components/event-map';
 
-type Props = {};
+import type { Props } from './types';
 
 type State = {
     isListView: boolean,

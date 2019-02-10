@@ -6,8 +6,8 @@ import { type $npm$ReactIntl$MessageDescriptor } from 'react-intl';
 import { Container } from './styles';
 
 type Props = {|
-    title: $npm$ReactIntl$MessageDescriptor,
-    description: $npm$ReactIntl$MessageDescriptor,
+    title: $npm$ReactIntl$MessageDescriptor | string,
+    description: $npm$ReactIntl$MessageDescriptor | string,
     onPress: () => void | Promise<*>,
 |};
 

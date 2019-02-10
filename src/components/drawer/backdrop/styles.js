@@ -1,7 +1,7 @@
 // @flow
 import styled from 'styled-components';
 
-//import { selectors } from '~/theme/main';
+import { selectors } from '~/theme/main';
 
 export const Container = styled.View`
     position: absolute;
@@ -9,6 +9,6 @@ export const Container = styled.View`
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: red;
+    background-color: ${selectors.midnight};
     z-index: 998;
 `;

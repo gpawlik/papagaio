@@ -6,6 +6,7 @@ const colors = {
     orange: 'rgb(255, 122, 0)',
     white: 'rgb(255, 255, 255)',
     chalk: 'rgb(244, 245, 246)',
+    midnight: 'rgb(41, 61, 72)',
 };
 const fontSizes = {
     fs1: '14px',

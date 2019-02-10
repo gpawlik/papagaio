@@ -1,6 +1,8 @@
 // @flow
+import type { Map, List } from 'immutable';
+
 export type StateProps = {|
-    events: any,
+    events: List<Map<*, *>>,
     isLoadingEvents: boolean,
 |};
 

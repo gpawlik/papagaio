@@ -1,11 +1,12 @@
 // @flow
 import { call } from 'redux-saga/effects';
+import { type Effect } from 'redux-saga';
 
 const bodyFromResponse = (result: string) => {
     return result.length ? JSON.parse(result) : {};
 };
 
-function* handleResult(result, parseJson, errorMsg) {
+function* handleResult(result: string, parseJson: boolean): Generator<*, *, *> {
     let body, error;
 
     if (parseJson) {
@@ -16,14 +17,14 @@ function* handleResult(result, parseJson, errorMsg) {
     return [body, error];
 }
 
-export const handleApi = (fn, parseJson = true) => {
-    return function* apiGenerator(...params) {
+export const handleApi = (fn: Function, parseJson: boolean = true) => {
+    return function* apiGenerator(...params: any): Generator<Effect | void, *, *> {
         let result;
 
         try {
             result = yield call(fn, ...params);
         } catch (err) {
-            throw new Error(true, err.message);
+            throw new Error(err.message);
         }
 
         if (!result) {

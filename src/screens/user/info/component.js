@@ -17,6 +17,9 @@ export class UserInfoComponent extends React.PureComponent<Props> {
 
     render() {
         const { firstName, secondName, location, isActive } = this.props;
+        // $FlowFixMe
+        const activeString = `${isActive}`;
+
         return (
             <Screen title={messages.title}>
                 <Text message={messages.infoFirstName} />
@@ -26,7 +29,7 @@ export class UserInfoComponent extends React.PureComponent<Props> {
                 <Text message={messages.infoLocation} />
                 <Text message={location} />
                 <Text message={messages.infoActive} />
-                <Text message={`${isActive}`} />
+                <Text message={activeString} />
 
                 <Button message={messages.buttonToggle} onPress={this.handleOnPress} />
             </Screen>

@@ -24,15 +24,15 @@ export class EventListComponent extends React.PureComponent<Props> {
         return isLoadingEvents ? (
             <Text message={generalMessages.loading} />
         ) : (
-            <View data={events}>
+            <View>
                 {events.map(event => {
                     const id = event.get('id');
 
-                    return (
+                    return id ? (
                         <TouchableOpacity key={id} onPress={() => this.handleOpenEvent(id)}>
-                            <Text message={event.get('title')} />
+                            <Text message={event.get('title', '')} />
                         </TouchableOpacity>
-                    );
+                    ) : null;
                 })}
             </View>
         );

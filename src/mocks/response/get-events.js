@@ -1,4 +1,6 @@
 // @flow
+import type { Event } from '~/domains/events/types';
+
 const createEvent = (index: number) => {
     return {
         id: index,
@@ -9,4 +11,4 @@ const createEvent = (index: number) => {
     };
 };
 
-export const events = [...Array(5).keys()].map(index => createEvent(index));
+export const events: Array<Event> = [...Array(5).keys()].map((index: number) => createEvent(index));

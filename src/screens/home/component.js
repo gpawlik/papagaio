@@ -11,7 +11,8 @@ import { EventList } from './components/event-list';
 import { EventMap } from './components/event-map';
 
 import { ButtonBox } from './styles';
-import type { Props } from './types';
+
+type Props = {};
 
 type State = {
     isListView: boolean,

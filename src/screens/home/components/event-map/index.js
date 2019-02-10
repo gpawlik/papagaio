@@ -3,7 +3,9 @@ import * as React from 'react';
 
 import { Text } from '~/components/text';
 
-export class EventMap extends React.PureComponent<void> {
+type Props = {};
+
+export class EventMap extends React.PureComponent<Props> {
     render() {
         return <Text message="MAP" />;
     }

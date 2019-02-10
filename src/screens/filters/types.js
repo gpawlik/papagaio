@@ -4,7 +4,7 @@ export type StateProps = {
 };
 
 export type DispatchProps = {
-    selectFilter: ({| offset: number, name: string |}) => void,
+    selectFilter: () => void,
 };
 
 export type Props = StateProps & DispatchProps;

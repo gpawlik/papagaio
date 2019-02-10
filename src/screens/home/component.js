@@ -28,8 +28,6 @@ export class HomeComponent extends React.PureComponent<Props, State> {
 
     handleShowFilters = () => navigate.showModal(routes.filters);
 
-    handleShowUserInfo = () => navigate.push(routes.userInfo);
-
     handleCreateEvent = () => navigate.showModal(routes.eventCreate);
 
     render() {
@@ -43,7 +41,6 @@ export class HomeComponent extends React.PureComponent<Props, State> {
                 <ButtonBox>
                     <Button message={messages.button} onPress={this.handleToggleView} />
                     <Button message={messages.goToFilters} onPress={this.handleShowFilters} />
-                    <Button message={messages.goToUserInfo} onPress={this.handleShowUserInfo} />
                     <Button message={messages.goToEventCreate} onPress={this.handleCreateEvent} />
                 </ButtonBox>
             </HomeScreen>

@@ -2,8 +2,8 @@
 import * as React from 'react';
 
 import { Drawer } from '~/components/drawer';
-import { Text } from '~/components/text';
-import { MENU_WIDTH } from './constants';
+import { menuItems, MENU_WIDTH } from './constants';
+import { MenuItem } from './components/item';
 import type { Props } from './types';
 
 //import { navigate } from '~/navigation';
@@ -18,7 +18,9 @@ export class NavigationMenuComponent extends React.Component<Props> {
 
         return (
             <Drawer width={MENU_WIDTH} isVisible={isNavigationVisible} onHide={this.onHide}>
-                <Text message="Hello from drawer!" />
+                {menuItems.map(({ id, message, route }) => (
+                    <MenuItem key={id} message={message} route={route} />
+                ))}
             </Drawer>
         );
     }

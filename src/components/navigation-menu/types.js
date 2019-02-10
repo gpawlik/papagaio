@@ -4,7 +4,7 @@ export type StateProps = {
 };
 
 export type DispatchProps = {
-    hideNavigation: () => void,
+    toggleNavigation: ({ isVisible: boolean }) => void,
 };
 
 export type Props = StateProps & DispatchProps;

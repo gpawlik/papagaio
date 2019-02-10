@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import { Animated, TouchableWithoutFeedback, BackHandler } from 'react-native';
+import type AnimatedValue from 'react-native/Libraries/Animated/src/nodes/AnimatedValue';
 
 import animate from './animation';
 import { Container } from './styles';
@@ -11,7 +12,7 @@ type Props = {
 };
 
 type State = {
-    opacity: number,
+    opacity: AnimatedValue,
     isAnimating: boolean,
 };
 

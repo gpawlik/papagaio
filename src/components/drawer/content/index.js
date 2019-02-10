@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
-import { Animated, type AnimatedValue } from 'react-native';
+import { Animated } from 'react-native';
+import type AnimatedValue from 'react-native/Libraries/Animated/src/nodes/AnimatedValue';
 
 import animate from './animation';
 import { Container } from './styles';

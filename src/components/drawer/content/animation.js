@@ -1,5 +1,6 @@
 // @flow
-import { Animated, Easing, type AnimatedValue } from 'react-native';
+import { Animated, Easing } from 'react-native';
+import type AnimatedValue from 'react-native/Libraries/Animated/src/nodes/AnimatedValue';
 
 export const ANIMATION_DURATION = 200;
 

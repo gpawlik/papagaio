@@ -6,20 +6,20 @@ export const messages = defineMessages({
         id: 'home.title',
         defaultMessage: 'Home',
     },
-    counter: {
-        id: 'home.counter',
-        defaultMessage: 'Sample value: {id}',
-    },
     button: {
-        id: 'home.button',
-        defaultMessage: 'Add +',
+        id: 'home.change-view',
+        defaultMessage: 'Change View',
     },
-    goToModal: {
-        id: 'home.go-to-modal',
-        defaultMessage: 'Go to Modal',
+    goToFilters: {
+        id: 'home.go-to-filters',
+        defaultMessage: 'Go to Filters',
     },
-    goToScreen: {
-        id: 'home.go-to-screen',
-        defaultMessage: 'Go to Screen',
+    goToUserInfo: {
+        id: 'home.go-to-user-info',
+        defaultMessage: 'Go to User Info',
+    },
+    goToEventCreate: {
+        id: 'home.go-to-event-create',
+        defaultMessage: 'Create Event',
     },
 });

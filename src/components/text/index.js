@@ -5,9 +5,15 @@ import { FormattedMessage, type $npm$ReactIntl$MessageDescriptor } from 'react-i
 import { StyledText } from './styles';
 
 type Props = {|
-    message: $npm$ReactIntl$MessageDescriptor,
+    message: $npm$ReactIntl$MessageDescriptor | string,
 |};
 
-export const Text = ({ message }: Props) => (
-    <FormattedMessage {...message}>{(m: string) => <StyledText>{m}</StyledText>}</FormattedMessage>
-);
+export const Text = ({ message }: Props) => {
+    if (!message) {
+        return null;
+    }
+    if (typeof message === 'string') {
+        return <StyledText>{message}</StyledText>;
+    }
+    return <FormattedMessage {...message}>{(m: string) => <StyledText>{m}</StyledText>}</FormattedMessage>;
+};

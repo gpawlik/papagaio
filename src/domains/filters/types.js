@@ -5,6 +5,6 @@ export type Action<TPayload> = {|
     error?: boolean,
 |};
 
-export type SomeActionPayload = Action<{|
+export type SelectFilterPayload = Action<{|
     name: number,
 |}>;

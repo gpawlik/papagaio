@@ -1,10 +1,10 @@
 // @flow
 export type StateProps = {
-    id: number,
+    filters: number,
 };
 
 export type DispatchProps = {
-    doSomeAction: ({| offset: number, name: string |}) => void,
+    selectFilter: () => void,
 };
 
 export type Props = StateProps & DispatchProps;

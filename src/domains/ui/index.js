@@ -8,7 +8,7 @@ import { toggleNavigation } from './actions';
 type State = ImmutableMap<string, *>;
 
 export const initialState: State = ImmutableMap({
-    isNavigationVisible: true,
+    isNavigationVisible: false,
 });
 
 const actionHandlers = new Map([

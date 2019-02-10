@@ -17,7 +17,7 @@ type State = {
 
 class Backdrop extends React.Component<Props, State> {
     state = {
-        opacity: new Animated.Value(0.5),
+        opacity: new Animated.Value(0),
         isAnimating: false,
     };
 

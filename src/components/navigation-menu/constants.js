@@ -1,2 +1,2 @@
 // @flow
-export const MENU_WIDTH = 500;
+export const MENU_WIDTH = 272;

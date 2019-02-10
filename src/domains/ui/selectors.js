@@ -6,5 +6,5 @@ const getUiState = state => state.ui || Map();
 
 export const getIsNavigationVisible = createSelector(
     [getUiState],
-    state => state.get('isNavigationVisible', true)
+    state => state.get('isNavigationVisible', false)
 );

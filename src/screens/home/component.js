@@ -3,11 +3,11 @@ import * as React from 'react';
 
 import * as routes from '~/constants/routes';
 import { navigate } from '~/navigation';
-import { Screen } from '~/components/screen';
 import { Button } from '~/components/button';
 import { NavigationMenu } from '~/components/navigation-menu';
 import { messages } from '~/domains/home/intl';
 
+import { HomeScreen } from './components/screen';
 import { EventList } from './components/event-list';
 import { EventMap } from './components/event-map';
 
@@ -36,7 +36,7 @@ export class HomeComponent extends React.PureComponent<Props, State> {
         const { isListView } = this.state;
 
         return (
-            <Screen title={messages.title} hideHeader>
+            <HomeScreen title={messages.title} hideHeader>
                 <NavigationMenu />
                 {isListView ? <EventList /> : <EventMap />}
 
@@ -46,7 +46,7 @@ export class HomeComponent extends React.PureComponent<Props, State> {
                     <Button message={messages.goToUserInfo} onPress={this.handleShowUserInfo} />
                     <Button message={messages.goToEventCreate} onPress={this.handleCreateEvent} />
                 </ButtonBox>
-            </Screen>
+            </HomeScreen>
         );
     }
 }

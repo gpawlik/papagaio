@@ -9,16 +9,17 @@ import { generalIcons } from '~/constants/icons/general';
 type Props = {|
     children: React.Node,
     title: $npm$ReactIntl$MessageDescriptor,
+    isFullWidth?: boolean,
 |};
 
 export class Modal extends React.PureComponent<Props> {
     handleBack = () => navigate.dismissModal();
 
     render() {
-        const { children, title } = this.props;
+        const { children, title, isFullWidth } = this.props;
 
         return (
-            <Screen title={title} backAction={this.handleBack} backIcon={generalIcons.CLOSE}>
+            <Screen title={title} backAction={this.handleBack} backIcon={generalIcons.CLOSE} isFullWidth={isFullWidth}>
                 {children}
             </Screen>
         );

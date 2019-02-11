@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { Modal } from '~/components/modal';
 import { Button } from '~/components/button';
-import { TextRegular2 } from '~/components/text';
+import { Section } from '~/components/section';
 
 import { messages } from '~/domains/filters/intl';
 
@@ -18,9 +18,9 @@ export class FiltersComponent extends React.PureComponent<Props> {
     render() {
         return (
             <Modal title={messages.title}>
-                <TextRegular2 message={messages.categoryTitle} />
-                <TextRegular2 message={messages.timeTitle} />
-                <TextRegular2 message={messages.locationTitle} />
+                <Section title={messages.categoryTitle} />
+                <Section title={messages.timeTitle} />
+                <Section title={messages.locationTitle} />
 
                 <Button message={messages.buttonSave} onPress={this.handleOnPress} />
             </Modal>

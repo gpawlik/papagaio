@@ -35,7 +35,7 @@ export class FiltersComponent extends React.PureComponent<Props> {
         // const { categories } = this.state;
 
         return (
-            <Modal title={messages.title}>
+            <Modal title={messages.title} isFullWidth>
                 <CategoryFilter />
                 <Section title={messages.timeTitle} />
                 <Section title={messages.locationTitle} />

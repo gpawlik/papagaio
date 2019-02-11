@@ -10,4 +10,5 @@ export const Container = styled.View`
 
 export const Title = styled(TextMedium3)`
     margin-bottom: ${selectors.ss4};
+    margin-horizontal: ${selectors.ss6};
 `;

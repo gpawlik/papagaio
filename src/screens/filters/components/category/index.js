@@ -3,7 +3,7 @@ import * as React from 'react';
 
 //import { Modal } from '~/components/modal';
 import { Section } from '~/components/section';
-import { Checkbox } from '~/components/checkbox';
+import { CheckboxCell } from '~/components/cell';
 
 import { messages } from '~/domains/filters/intl';
 
@@ -27,7 +27,12 @@ export class CategoryFilter extends React.PureComponent<Props> {
         return (
             <Section title={messages.categoryTitle}>
                 {Object.entries(state).map(item => (
-                    <Checkbox key={item[0]} onValueChange={() => this.onCategoryChange(item[0])} value={item[1]} />
+                    <CheckboxCell
+                        key={item[0]}
+                        title={item[0]}
+                        onPress={() => this.onCategoryChange(item[0])}
+                        value={item[1]}
+                    />
                 ))}
             </Section>
         );

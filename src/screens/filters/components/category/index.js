@@ -1,19 +1,19 @@
 // @flow
 import * as React from 'react';
 
-//import { Modal } from '~/components/modal';
 import { Section } from '~/components/section';
 import { CheckboxCell } from '~/components/cell';
 
 import { messages } from '~/domains/filters/intl';
+import { categories } from '~/domains/filters/constants';
 
-import type { Props } from './types';
+import type { Props, State } from './types';
 
-export class CategoryFilter extends React.PureComponent<Props> {
+export class CategoryFilter extends React.PureComponent<Props, State> {
     state = {
-        environment: true,
-        animals: true,
-        social: true,
+        [categories.ENVIRONMENT]: true,
+        [categories.ANIMALS]: true,
+        [categories.SOCIAL]: true,
     };
 
     onCategoryChange = (key: string) => {
@@ -29,9 +29,9 @@ export class CategoryFilter extends React.PureComponent<Props> {
                 {Object.entries(state).map(item => (
                     <CheckboxCell
                         key={item[0]}
-                        title={item[0]}
+                        title={messages[item[0]]}
                         onPress={() => this.onCategoryChange(item[0])}
-                        value={item[1]}
+                        value={!!item[1]}
                     />
                 ))}
             </Section>

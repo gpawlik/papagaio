@@ -7,17 +7,21 @@ import { Checkbox } from '~/components/checkbox';
 
 import { Container, RowContainer } from './styles';
 
-type CellProps = {
+type TextProps = {
     title: $npm$ReactIntl$MessageDescriptor | string,
-    description: $npm$ReactIntl$MessageDescriptor | string,
+    description?: $npm$ReactIntl$MessageDescriptor | string,
+};
+
+type CellProps = TextProps & {
     onPress: () => void | Promise<*>,
 };
 
-type CheckboxCellProps = CellProps & {
+type CheckboxCellProps = TextProps & {
     value: boolean,
+    onPress: () => void,
 };
 
-export const Cell = ({ title, description, onPress }: Props) => (
+export const Cell = ({ title, description, onPress }: CellProps) => (
     <Container onPress={onPress}>
         <TextMedium2 message={title} />
         {description ? <TextRegular2 message={description} /> : null}
@@ -25,7 +29,7 @@ export const Cell = ({ title, description, onPress }: Props) => (
 );
 
 export const CheckboxCell = ({ title, value, onPress }: CheckboxCellProps) => (
-    <RowContainer>
+    <RowContainer onPress={onPress}>
         <Checkbox value={value} onValueChange={onPress} />
         <TextRegular2 message={title} />
     </RowContainer>

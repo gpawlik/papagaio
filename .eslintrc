@@ -4,7 +4,11 @@
     "globals": {
         "expect": true,
         "render": true,
-        "__DEV__": true
+        "__DEV__": true,
+        "jasmine": true,
+        "element": true,
+        "device": true,
+        "by": true
     },
     "rules": {
         "camelcase": "error",

@@ -21,7 +21,7 @@ export class UserInfoComponent extends React.PureComponent<Props> {
         const activeString = `${isActive}`;
 
         return (
-            <Screen title={messages.title}>
+            <Screen title={messages.title} qaName="user-profile">
                 <TextRegular2 message={messages.infoFirstName} />
                 <TextRegular2 message={firstName} />
                 <TextRegular2 message={messages.infoSecondName} />

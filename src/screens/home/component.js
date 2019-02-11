@@ -38,7 +38,7 @@ export class HomeComponent extends React.PureComponent<Props, State> {
         const { isListView } = this.state;
 
         return (
-            <Container>
+            <Container testID="screen.home">
                 <NavigationMenu />
                 <Header backIcon={generalIcons.MENU} backAction={this.onMenuPress} />
                 <ButtonsBar>

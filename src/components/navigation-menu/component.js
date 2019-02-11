@@ -24,7 +24,7 @@ export class NavigationMenuComponent extends React.Component<Props> {
         return (
             <Drawer width={MENU_WIDTH} isVisible={isNavigationVisible} onHide={this.onHide}>
                 {menuItems.map(({ id, message, route }) => (
-                    <MenuItem key={id} message={message} route={route} onPress={this.onPress} />
+                    <MenuItem key={id} message={message} route={route} qaName={id} onPress={this.onPress} />
                 ))}
             </Drawer>
         );

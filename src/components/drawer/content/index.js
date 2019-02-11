@@ -46,6 +46,7 @@ class DrawerContent extends React.Component<Props, State> {
                     transform: [{ translateX: animatedValue }],
                     width,
                 }}
+                testID="side-drawer"
             >
                 {children}
             </AnimatedContainer>

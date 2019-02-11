@@ -8,11 +8,16 @@ import { Container } from './styles';
 
 type Props = {|
     message: $npm$ReactIntl$MessageDescriptor,
+    qaName?: string,
     onPress: () => void | Promise<*>,
 |};
 
-export const Button = ({ message, onPress }: Props) => (
-    <Container onPress={onPress}>
-        <TextRegular2 message={message} />
-    </Container>
-);
+export const Button = ({ message, onPress, qaName }: Props) => {
+    const testProps = qaName ? { testID: `button.${qaName}` } : {};
+
+    return (
+        <Container onPress={onPress} {...testProps}>
+            <TextRegular2 message={message} />
+        </Container>
+    );
+};

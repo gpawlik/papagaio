@@ -13,7 +13,7 @@ export class About extends React.PureComponent<Props> {
 
     render() {
         return (
-            <Screen title={messages.title}>
+            <Screen title={messages.title} qaName="about">
                 <TextRegular2 message="About screen" />
             </Screen>
         );

@@ -21,7 +21,7 @@ export class BackButton extends React.PureComponent<Props> {
         const { backIcon = generalIcons.ARROW_LEFT } = this.props;
 
         return (
-            <Container onPress={this.goBack}>
+            <Container onPress={this.goBack} testID="header.button">
                 <SVGIcon type={backIcon} />
             </Container>
         );

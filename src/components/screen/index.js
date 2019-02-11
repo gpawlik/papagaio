@@ -13,14 +13,25 @@ type Props = {|
     hideHeader?: boolean,
     isFullWidth?: boolean,
     hasContentScroll?: boolean,
+    qaName?: string,
     backAction?: () => Promise<*>,
 |};
 
-export const Screen = ({ children, title, backIcon, backAction, hideHeader, isFullWidth, hasContentScroll }: Props) => {
+export const Screen = ({
+    children,
+    title,
+    backIcon,
+    backAction,
+    hideHeader,
+    isFullWidth,
+    hasContentScroll,
+    qaName,
+}: Props) => {
     const ViewContent = hasContentScroll ? ScrollContent : Content;
+    const testProps = qaName ? { testID: `screen.${qaName}` } : {};
 
     return (
-        <Container>
+        <Container {...testProps}>
             {!hideHeader ? <Header title={title} backIcon={backIcon} backAction={backAction} /> : null}
             <ViewContent isFullWidth={isFullWidth}>{children}</ViewContent>
         </Container>

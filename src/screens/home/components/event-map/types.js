@@ -1,13 +1,8 @@
 // @flow
 import type { Map } from 'immutable';
 
-type Coordinates = {|
-    latitude: number,
-    longitude: number,
-    latitudeDelta: number,
-    longitudeDelta: number,
-|};
+type Coordinates = 'latitude' | 'longitude' | 'latitudeDelta' | 'longitudeDelta';
 
-export type StateProps = Map<{
-    mapCoordinates: Coordinates,
-}>;
+export type StateProps = {
+    mapCoordinates: Map<Coordinates, number>,
+};

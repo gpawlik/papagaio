@@ -11,10 +11,10 @@ type State = ImmutableMap<string, *>;
 export const initialState: State = ImmutableMap({
     items: List(),
     mapCoordinates: ImmutableMap({
-        latitude: 37.78825,
-        longitude: -122.4324,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
+        latitude: 41.149318,
+        longitude: -8.611385,
+        latitudeDelta: 0.02,
+        longitudeDelta: 0.02,
     }),
     isLoading: false,
 });

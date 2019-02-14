@@ -11,6 +11,11 @@ export const getEvents = createSelector(
     state => state.get('items', List())
 );
 
+export const getHasEvents = createSelector(
+    [getEvents],
+    events => !!events.size
+);
+
 export const getIsLoadingEvents = createSelector(
     [getEventsState],
     state => state.get('isLoading', false)

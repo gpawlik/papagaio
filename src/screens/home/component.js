@@ -26,6 +26,12 @@ export class HomeComponent extends React.PureComponent<Props, State> {
         isListView: false,
     };
 
+    componentDidMount = () => {
+        const { hasEvents, fetchEvents } = this.props;
+
+        !hasEvents && fetchEvents();
+    };
+
     onMenuPress = () => this.props.toggleNavigation({ isVisible: true });
 
     handleToggleView = () => this.setState((state: State) => ({ isListView: !state.isListView }));

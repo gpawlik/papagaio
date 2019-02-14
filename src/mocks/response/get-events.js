@@ -1,6 +1,13 @@
 // @flow
 import type { Event } from '~/domains/events/types';
 
+const getRandom = (from: number, to: number) => Math.floor(Math.random() * to) + from;
+
+const createCoordinates = (baseLat: number, baseLng: number, sigma: number) => ({
+    latitude: baseLat + getRandom(0, 100) / 100,
+    longitude: baseLng + getRandom(0, 100) / 100,
+});
+
 const createEvent = (index: number) => {
     return {
         id: index,
@@ -8,6 +15,7 @@ const createEvent = (index: number) => {
         description: 'Some description of the event',
         location: 'Porto, Portugal',
         timestamp: 1549717008861,
+        latlng: createCoordinates(41.14447, -8.603921),
         content: `Lorem ipsum dolor amet +1 stumptown fam craft beer meggings. Gentrify fingerstache butcher fam locavore edison bulb viral air plant brooklyn. Irony shoreditch green juice thundercats messenger bag meditation sriracha bespoke. 
             
 Crucifix af cred taxidermy succulents distillery chicharrones everyday carry kombucha poutine air plant migas keytar messenger bag. Neutra tofu gastropub poke offal humblebrag try-hard poutine hell of tattooed hexagon copper mug master cleanse iPhone roof party. 

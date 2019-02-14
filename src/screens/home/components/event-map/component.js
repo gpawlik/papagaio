@@ -32,9 +32,9 @@ export class EventMapComponent extends React.PureComponent<Props> {
                         >
                             <CustomMarker />
                             <CustomCallout
-                                id={marker.get('id')}
-                                title={marker.get('title')}
-                                description={marker.get('description')}
+                                id={marker.get('id', '')}
+                                title={marker.get('title', '')}
+                                description={marker.get('description', '')}
                             />
                         </Marker>
                     ))}

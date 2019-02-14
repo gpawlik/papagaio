@@ -8,8 +8,8 @@ import { navigate } from '~/navigation';
 import { Container, Title, Description } from './styles';
 
 type Props = {
-    title: *,
-    description: *,
+    title: string,
+    description: string,
     id: string,
 };
 

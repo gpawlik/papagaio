@@ -3,7 +3,7 @@ import type { Event } from '~/domains/events/types';
 
 const getRandom = (from: number, to: number) => Math.floor(Math.random() * to) + from;
 
-const createCoordinates = (baseLat: number, baseLng: number, sigma: number) => ({
+const createCoordinates = (baseLat: number, baseLng: number) => ({
     latitude: baseLat + getRandom(0, 100) / 10000,
     longitude: baseLng + getRandom(0, 100) / 10000,
 });

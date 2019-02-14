@@ -7,11 +7,10 @@ import { CustomCallout } from '~/components/callout';
 
 import { Container, Map } from './styles';
 import type { StateProps as Props } from './types';
-import { markers } from './constants';
 
 export class EventMapComponent extends React.PureComponent<Props> {
     render() {
-        const { mapCoordinates } = this.props;
+        const { events, mapCoordinates } = this.props;
 
         return (
             <Container>
@@ -23,15 +22,20 @@ export class EventMapComponent extends React.PureComponent<Props> {
                         longitudeDelta: mapCoordinates.get('longitudeDelta'),
                     }}
                 >
-                    {markers.map(marker => (
+                    {events.map(marker => (
                         <Marker
-                            key={marker.id}
-                            coordinate={marker.latlng}
-                            title={marker.title}
-                            description={marker.description}
+                            key={marker.get('id')}
+                            coordinate={{
+                                longitude: marker.getIn(['latlng', 'longitude']),
+                                latitude: marker.getIn(['latlng', 'latitude']),
+                            }}
                         >
                             <CustomMarker />
-                            <CustomCallout {...marker} />
+                            <CustomCallout
+                                id={marker.get('id')}
+                                title={marker.get('title')}
+                                description={marker.get('description')}
+                            />
                         </Marker>
                     ))}
                 </Map>

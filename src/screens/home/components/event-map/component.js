@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Marker } from 'react-native-maps';
 
 import { Marker as CustomMarker } from '~/components/marker';
+import { CustomCallout } from '~/components/callout';
 
 import { Container, Map } from './styles';
 import type { StateProps as Props } from './types';
@@ -30,6 +31,7 @@ export class EventMapComponent extends React.PureComponent<Props> {
                             description={marker.description}
                         >
                             <CustomMarker />
+                            <CustomCallout {...marker} />
                         </Marker>
                     ))}
                 </Map>

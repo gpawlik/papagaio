@@ -2,8 +2,7 @@
 import { connect } from 'react-redux';
 
 import { getEvents, getIsLoadingEvents } from '~/domains/events/selectors';
-import { fetchEvents } from '~/domains/events/actions';
-import type { StateProps, DispatchProps } from './types';
+import type { StateProps } from './types';
 
 import { EventListComponent } from './component';
 
@@ -12,11 +11,4 @@ export const mapStateToProps = (state: any): StateProps => ({
     isLoadingEvents: getIsLoadingEvents(state),
 });
 
-const mapDispatchToProps: DispatchProps = {
-    fetchEvents,
-};
-
-export const EventList = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(EventListComponent);
+export const EventList = connect(mapStateToProps)(EventListComponent);

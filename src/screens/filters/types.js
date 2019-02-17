@@ -8,3 +8,8 @@ export type DispatchProps = {
 };
 
 export type Props = StateProps & DispatchProps;
+
+export type State = {
+    categories: Array<string>,
+    timeSlot: number,
+};

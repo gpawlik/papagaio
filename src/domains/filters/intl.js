@@ -16,10 +16,6 @@ export const messages = defineMessages({
         id: 'filters.time.title',
         defaultMessage: 'Time',
     },
-    locationTitle: {
-        id: 'filters.location.title',
-        defaultMessage: 'Location',
-    },
     buttonSave: {
         id: 'filters.button.save',
         defaultMessage: 'Save',

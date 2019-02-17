@@ -13,8 +13,8 @@ export const initialState: State = ImmutableMap({
     mapCoordinates: ImmutableMap({
         latitude: 41.149318,
         longitude: -8.611385,
-        latitudeDelta: 0.02,
-        longitudeDelta: 0.02,
+        latitudeDelta: 0.05,
+        longitudeDelta: 0.05,
     }),
     isLoading: false,
 });

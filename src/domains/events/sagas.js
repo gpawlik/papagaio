@@ -3,12 +3,17 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import { type Effect } from 'redux-saga';
 
 import { handleApi } from '~/utils/api';
+import { getTimeBoundaries } from '~/utils/time';
+import type { SelectFilterPayload } from '~/domains/filters/types';
 
 import * as api from './api';
 import { fetchEvents, receiveEvents } from './actions';
 
-export function* getEventsSaga(): Generator<Effect, *, *> {
-    const [events = {}] = yield call(handleApi(api.getEvents));
+export function* getEventsSaga({ payload: { filters } = {} }: SelectFilterPayload): Generator<Effect, *, *> {
+    const { categories, timeSlot } = filters || {};
+    const [minTime, maxTime] = getTimeBoundaries(timeSlot);
+
+    const [events = {}] = yield call(handleApi(api.getEvents), { filters: { categories, minTime, maxTime } });
 
     yield put(receiveEvents({ events }));
 }

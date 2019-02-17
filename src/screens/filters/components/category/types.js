@@ -1,6 +1,5 @@
 // @flow
-export type Props = {};
-
-export type State = {
-    [string]: boolean,
+export type Props = {
+    categories: Array<string>,
+    onChange: string => void,
 };

@@ -26,15 +26,17 @@ export class EventMapComponent extends React.PureComponent<Props> {
                         <Marker
                             key={marker.get('id')}
                             coordinate={{
-                                longitude: marker.getIn(['latlng', 'longitude']),
-                                latitude: marker.getIn(['latlng', 'latitude']),
+                                longitude: Number(marker.get('longitude', 0)),
+                                latitude: Number(marker.get('latitude', 0)),
                             }}
                         >
                             <CustomMarker />
                             <CustomCallout
-                                id={marker.get('id', '')}
-                                title={marker.get('title', '')}
-                                description={marker.get('description', '')}
+                                id={marker.get('id')}
+                                title={marker.get('title')}
+                                organizer={marker.get('organizer')}
+                                start={marker.get('event_start')}
+                                end={marker.get('event_end')}
                             />
                         </Marker>
                     ))}

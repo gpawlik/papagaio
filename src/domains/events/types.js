@@ -7,3 +7,13 @@ export type Event = {
     timestamp: number,
     content: string,
 };
+
+export type RequestFilters = {
+    categories: Array<string>,
+    minTime: number,
+    maxTime: number,
+};
+
+export type RequestEvents = {
+    filters: RequestFilters,
+};

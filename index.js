@@ -12,6 +12,8 @@ import { provider } from '~/provider';
 import { screens } from '~/register-screens';
 import { getDimensions } from '~/utils/dimensions';
 
+GLOBAL.XMLHttpRequest = GLOBAL.originalXMLHttpRequest || GLOBAL.XMLHttpRequest;
+
 screens.forEach((ScreenComponent, key) =>
     Navigation.registerComponent(key, () => provider(ScreenComponent, store), () => ScreenComponent)
 );

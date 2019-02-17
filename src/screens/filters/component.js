@@ -22,7 +22,7 @@ export class FiltersComponent extends React.PureComponent<Props, State> {
     };
 
     handleOnPress = () => {
-        this.props.selectFilter();
+        this.props.selectFilter({ filters: this.state });
     };
 
     onCategoryChange = (category: string) => {
@@ -51,9 +51,10 @@ export class FiltersComponent extends React.PureComponent<Props, State> {
                             style={{ height: 250 }}
                             onValueChange={this.onTimePickerChange}
                         >
-                            <Picker.Item label="Next 7 days" value={1} />
-                            <Picker.Item label="Next weekend" value={2} />
-                            <Picker.Item label="Next 30 days" value={3} />
+                            <Picker.Item label="Next 3 days" value={1} />
+                            <Picker.Item label="Next 7 days" value={2} />
+                            <Picker.Item label="Next 14 days" value={3} />
+                            <Picker.Item label="Next 30 days" value={4} />
                         </Picker>
                     </PickerBox>
                 </Section>

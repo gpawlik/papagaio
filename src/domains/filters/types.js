@@ -5,6 +5,11 @@ export type Action<TPayload> = {|
     error?: boolean,
 |};
 
+export type Filters = {
+    categories: Array<string>,
+    timeSlot: number,
+};
+
 export type SelectFilterPayload = Action<{|
-    name: number,
+    filters: Filters,
 |}>;

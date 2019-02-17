@@ -2,10 +2,10 @@
 import * as React from 'react';
 
 import { Screen } from '~/components/screen';
-import { TextRegular2, TextRegular4, TextMedium4 } from '~/components/text';
 
 import { messages } from '~/domains/events/intl';
 
+import { TitleBox, ContentBox, Title, Description, MetaText, ContentText } from './styles';
 import type { Props } from './types';
 
 export class EventDetailsComponent extends React.PureComponent<Props> {
@@ -14,11 +14,16 @@ export class EventDetailsComponent extends React.PureComponent<Props> {
 
         return (
             <Screen title={messages.eventDetailsTitle} hasContentScroll>
-                <TextMedium4 message={title} />
-                <TextRegular4 message={description} />
-                <TextRegular2 message={location} />
-                <TextRegular2 message={time} />
-                <TextRegular2 message={content} />
+                <TitleBox>
+                    <Title message={title} />
+                    <Description message={description} />
+                    <MetaText message={location} />
+                    <MetaText message={time} />
+                </TitleBox>
+
+                <ContentBox>
+                    <ContentText message={content} />
+                </ContentBox>
             </Screen>
         );
     }

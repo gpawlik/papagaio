@@ -2,8 +2,9 @@
 import { call } from 'redux-saga/effects';
 import { type Effect } from 'redux-saga';
 
-const bodyFromResponse = (result: string) => {
-    return result.length ? JSON.parse(result) : {};
+const bodyFromResponse = function*(result) {
+    const body = yield call(() => result.text());
+    return body.length ? JSON.parse(body) : {};
 };
 
 function* handleResult(result: string, parseJson: boolean): Generator<*, *, *> {

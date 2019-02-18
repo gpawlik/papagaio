@@ -18,7 +18,7 @@ export const messages = defineMessages({
     },
     buttonSave: {
         id: 'filters.button.save',
-        defaultMessage: 'Save',
+        defaultMessage: 'Apply filters',
     },
     [categories.ENVIRONMENT]: {
         id: 'filters.category.environment',

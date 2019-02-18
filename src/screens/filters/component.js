@@ -12,7 +12,7 @@ import { messages } from '~/domains/filters/intl';
 
 import { CategoryFilter } from './components/category';
 
-import { PickerBox } from './styles';
+import { PickerBox, ContentBox, ButtonBox } from './styles';
 import type { Props, State } from './types';
 
 export class FiltersComponent extends React.PureComponent<Props, State> {
@@ -42,24 +42,28 @@ export class FiltersComponent extends React.PureComponent<Props, State> {
 
         return (
             <Modal title={messages.title} isFullWidth>
-                <CategoryFilter onChange={this.onCategoryChange} categories={categories} />
+                <ContentBox>
+                    <CategoryFilter onChange={this.onCategoryChange} categories={categories} />
 
-                <Section title={messages.timeTitle}>
-                    <PickerBox>
-                        <Picker
-                            selectedValue={this.state.timeSlot}
-                            style={{ height: 250 }}
-                            onValueChange={this.onTimePickerChange}
-                        >
-                            <Picker.Item label="Next 3 days" value={1} />
-                            <Picker.Item label="Next 7 days" value={2} />
-                            <Picker.Item label="Next 14 days" value={3} />
-                            <Picker.Item label="Next 30 days" value={4} />
-                        </Picker>
-                    </PickerBox>
-                </Section>
+                    <Section title={messages.timeTitle}>
+                        <PickerBox>
+                            <Picker
+                                selectedValue={this.state.timeSlot}
+                                style={{ height: 250 }}
+                                onValueChange={this.onTimePickerChange}
+                            >
+                                <Picker.Item label="Next 3 days" value={1} />
+                                <Picker.Item label="Next 7 days" value={2} />
+                                <Picker.Item label="Next 14 days" value={3} />
+                                <Picker.Item label="Next 30 days" value={4} />
+                            </Picker>
+                        </PickerBox>
+                    </Section>
+                </ContentBox>
 
-                <Button message={messages.buttonSave} onPress={this.handleOnPress} />
+                <ButtonBox>
+                    <Button message={messages.buttonSave} onPress={this.handleOnPress} />
+                </ButtonBox>
             </Modal>
         );
     }

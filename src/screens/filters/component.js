@@ -7,7 +7,6 @@ import { Modal } from '~/components/modal';
 import { Button } from '~/components/button';
 import { Section } from '~/components/section';
 
-import { categories } from '~/domains/filters/constants';
 import { messages } from '~/domains/filters/intl';
 
 import { CategoryFilter } from './components/category';
@@ -17,8 +16,8 @@ import type { Props, State } from './types';
 
 export class FiltersComponent extends React.PureComponent<Props, State> {
     state = {
-        categories: [categories.ENVIRONMENT, categories.ANIMALS, categories.SOCIAL, categories.EDUCATION],
-        timeSlot: 2,
+        categories: this.props.categories.toJS(),
+        timeSlot: this.props.timeSlot,
     };
 
     handleOnPress = () => {

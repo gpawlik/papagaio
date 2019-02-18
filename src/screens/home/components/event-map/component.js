@@ -6,9 +6,20 @@ import { Marker as CustomMarker } from '~/components/marker';
 import { CustomCallout } from '~/components/callout';
 
 import { Container, Map } from './styles';
-import type { StateProps as Props } from './types';
+import type { Props, MapChangeProps } from './types';
 
 export class EventMapComponent extends React.PureComponent<Props> {
+    onRegionChangeComplete = ({ latitude, longitude, latitudeDelta, longitudeDelta }: MapChangeProps) => {
+        this.props.fetchEvents({
+            coordinates: {
+                minLat: latitude - latitudeDelta / 2,
+                maxLat: latitude + latitudeDelta / 2,
+                minLng: longitude - longitudeDelta / 2,
+                maxLng: longitude + longitudeDelta / 2,
+            },
+        });
+    };
+
     render() {
         const { events, mapCoordinates } = this.props;
 
@@ -21,6 +32,9 @@ export class EventMapComponent extends React.PureComponent<Props> {
                         latitudeDelta: mapCoordinates.get('latitudeDelta'),
                         longitudeDelta: mapCoordinates.get('longitudeDelta'),
                     }}
+                    onRegionChangeComplete={this.onRegionChangeComplete}
+                    showsBuildings={false}
+                    loadingEnabled
                 >
                     {events.map(marker => (
                         <Marker

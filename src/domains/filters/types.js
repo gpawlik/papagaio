@@ -1,4 +1,6 @@
 // @flow
+import type { List } from 'immutable';
+
 export type Action<TPayload> = {|
     type: string,
     payload: TPayload,
@@ -6,7 +8,7 @@ export type Action<TPayload> = {|
 |};
 
 export type Filters = {
-    categories: Array<mixed>,
+    categories: List<string>,
     timeSlot: number,
 };
 

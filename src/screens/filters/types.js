@@ -3,7 +3,7 @@ import type { List } from 'immutable';
 import type { Filters } from '~/domains/filters/types';
 
 export type StateProps = {
-    categories: List<mixed>,
+    categories: List<string>,
     timeSlot: number,
 };
 

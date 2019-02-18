@@ -1,5 +1,7 @@
 // @flow
+import type { List } from 'immutable';
+
 export type Props = {
-    categories: Array<mixed>,
+    categories: List<string>,
     onChange: string => void,
 };

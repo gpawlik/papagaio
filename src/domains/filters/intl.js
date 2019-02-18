@@ -18,7 +18,7 @@ export const messages = defineMessages({
     },
     buttonSave: {
         id: 'filters.button.save',
-        defaultMessage: 'Save',
+        defaultMessage: 'Apply filters',
     },
     [categories.ENVIRONMENT]: {
         id: 'filters.category.environment',
@@ -31,5 +31,9 @@ export const messages = defineMessages({
     [categories.SOCIAL]: {
         id: 'filters.category.social',
         defaultMessage: 'Social',
+    },
+    [categories.EDUCATION]: {
+        id: 'filters.category.education',
+        defaultMessage: 'Education',
     },
 });

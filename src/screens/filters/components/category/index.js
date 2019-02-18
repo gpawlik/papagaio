@@ -9,7 +9,7 @@ import { categories } from '~/domains/filters/constants';
 
 import type { Props } from './types';
 
-const allCategories = [categories.ENVIRONMENT, categories.ANIMALS, categories.SOCIAL];
+const allCategories = [categories.ENVIRONMENT, categories.ANIMALS, categories.SOCIAL, categories.EDUCATION];
 
 export class CategoryFilter extends React.PureComponent<Props> {
     onCategoryChange = (key: string) => {

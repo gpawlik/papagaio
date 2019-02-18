@@ -7,7 +7,7 @@ export const PickerBox = styled.View`
     height: 250;
 `;
 
-export const ContentBox = styled.View`
+export const ContentBox = styled.ScrollView`
     flex: 1;
 `;
 

@@ -32,4 +32,8 @@ export const messages = defineMessages({
         id: 'filters.category.social',
         defaultMessage: 'Social',
     },
+    [categories.EDUCATION]: {
+        id: 'filters.category.education',
+        defaultMessage: 'Education',
+    },
 });

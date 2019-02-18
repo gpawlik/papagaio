@@ -17,7 +17,7 @@ import type { Props, State } from './types';
 
 export class FiltersComponent extends React.PureComponent<Props, State> {
     state = {
-        categories: [categories.ENVIRONMENT, categories.ANIMALS, categories.SOCIAL],
+        categories: [categories.ENVIRONMENT, categories.ANIMALS, categories.SOCIAL, categories.EDUCATION],
         timeSlot: 2,
     };
 

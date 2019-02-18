@@ -1,8 +1,10 @@
 // @flow
+import type { List } from 'immutable';
 import type { Filters } from '~/domains/filters/types';
 
 export type StateProps = {
-    filters: number,
+    categories: List<mixed>,
+    timeSlot: number,
 };
 
 export type DispatchProps = {

@@ -6,7 +6,7 @@ export type Action<TPayload> = {|
 |};
 
 export type Filters = {
-    categories: Array<string>,
+    categories: Array<mixed>,
     timeSlot: number,
 };
 

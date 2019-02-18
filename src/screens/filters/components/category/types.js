@@ -1,5 +1,5 @@
 // @flow
 export type Props = {
-    categories: Array<string>,
+    categories: Array<mixed>,
     onChange: string => void,
 };

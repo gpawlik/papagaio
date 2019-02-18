@@ -16,5 +16,5 @@ export const getFilterCategories = createSelector(
 
 export const getFilterTimeSlot = createSelector(
     [getFilters],
-    filters => filters.get('timeSlot', 2)
+    filters => filters.get('timeSlot', 1)
 );

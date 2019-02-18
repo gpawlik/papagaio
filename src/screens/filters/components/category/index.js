@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import { List } from 'immutable';
 
 import { Section } from '~/components/section';
 import { CheckboxCell } from '~/components/cell';
@@ -17,7 +18,7 @@ export class CategoryFilter extends React.PureComponent<Props> {
     };
 
     render() {
-        const { categories = [] } = this.props;
+        const { categories = List() } = this.props;
 
         return (
             <Section title={messages.categoryTitle}>

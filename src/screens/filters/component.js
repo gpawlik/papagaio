@@ -1,6 +1,5 @@
 // @flow
 import * as React from 'react';
-import * as R from 'ramda';
 import { Picker } from 'react-native';
 
 import { navigate } from '~/navigation';
@@ -17,7 +16,7 @@ import type { Props, State } from './types';
 
 export class FiltersComponent extends React.PureComponent<Props, State> {
     state = {
-        categories: this.props.categories.toJS(),
+        categories: this.props.categories,
         timeSlot: this.props.timeSlot,
     };
 
@@ -28,18 +27,27 @@ export class FiltersComponent extends React.PureComponent<Props, State> {
 
     onCategoryChange = (category: string) => {
         const { categories } = this.state;
+        const index = categories.indexOf(category);
 
-        if (categories.includes(category)) {
-            this.setState({ categories: R.without([category], categories) });
+        if (index >= 0) {
+            this.setState({ categories: categories.delete(index) });
         } else {
-            this.setState({ categories: R.append(category, categories) });
+            this.setState({ categories: categories.push(category) });
         }
     };
 
     onTimePickerChange = (value: number) => this.setState({ timeSlot: value });
 
+    hasFiltersChanged = () => {
+        const { categories, timeSlot } = this.props;
+        const { categories: currentCategories, timeSlot: currentTimeSlot } = this.state;
+
+        return !categories.sort().equals(currentCategories.sort()) || timeSlot !== currentTimeSlot;
+    };
+
     render() {
         const { categories } = this.state;
+        const hasChanged = this.hasFiltersChanged();
 
         return (
             <Modal title={messages.title} isFullWidth>
@@ -63,7 +71,7 @@ export class FiltersComponent extends React.PureComponent<Props, State> {
                 </ContentBox>
 
                 <ButtonBox>
-                    <Button message={messages.buttonSave} onPress={this.handleOnPress} />
+                    <Button message={messages.buttonSave} onPress={this.handleOnPress} isDisabled={!hasChanged} />
                 </ButtonBox>
             </Modal>
         );

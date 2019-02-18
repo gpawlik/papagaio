@@ -3,6 +3,7 @@ import * as React from 'react';
 import * as R from 'ramda';
 import { Picker } from 'react-native';
 
+import { navigate } from '~/navigation';
 import { Modal } from '~/components/modal';
 import { Button } from '~/components/button';
 import { Section } from '~/components/section';
@@ -22,6 +23,7 @@ export class FiltersComponent extends React.PureComponent<Props, State> {
 
     handleOnPress = () => {
         this.props.selectFilter({ filters: this.state });
+        navigate.dismissModal();
     };
 
     onCategoryChange = (category: string) => {

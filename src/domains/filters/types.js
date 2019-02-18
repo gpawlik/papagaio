@@ -12,6 +12,14 @@ export type Filters = {
     timeSlot: number,
 };
 
+export type Coordinates = {
+    minLat: number,
+    maxLat: number,
+    minLng: number,
+    maxLng: number,
+};
+
 export type SelectFilterPayload = Action<{|
     filters: Filters,
+    coordinates: Coordinates,
 |}>;

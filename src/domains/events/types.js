@@ -1,4 +1,6 @@
 // @flow
+import type { Coordinates } from '~/domains/filters/types';
+
 export type Event = {
     id: number,
     title: string,
@@ -16,4 +18,5 @@ export type RequestFilters = {
 
 export type RequestEvents = {
     filters: RequestFilters,
+    coordinates: Coordinates,
 };

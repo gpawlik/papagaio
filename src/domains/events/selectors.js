@@ -55,3 +55,23 @@ export const getMapCoordinates = createSelector(
     [getEventsState],
     state => state.get('mapCoordinates', Map())
 );
+
+export const getOrganizer = createSelector(
+    [getEventById],
+    event => event.get('organizer', '')
+);
+
+export const getOrganizerUrl = createSelector(
+    [getEventById],
+    event => event.get('organizer_url', '')
+);
+
+export const getEventUrl = createSelector(
+    [getEventById],
+    event => event.get('event_url', '')
+);
+
+export const getImageUrl = createSelector(
+    [getEventById],
+    event => event.get('main_image', '')
+);

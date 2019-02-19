@@ -11,6 +11,12 @@ import type { Props } from './types';
 import { Container } from './styles';
 
 export class EventListComponent extends React.PureComponent<Props> {
+    componentDidMount = () => {
+        const { hasEvents, fetchEvents } = this.props;
+
+        !hasEvents && fetchEvents();
+    };
+
     handleOpenEvent = (id: string) => navigate.push(routes.eventDetails, { id });
 
     render() {

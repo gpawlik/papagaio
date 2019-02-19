@@ -23,13 +23,7 @@ type State = {
 
 export class HomeComponent extends React.PureComponent<Props, State> {
     state = {
-        isListView: false,
-    };
-
-    componentDidMount = () => {
-        const { hasEvents, fetchEvents } = this.props;
-
-        !hasEvents && fetchEvents();
+        isListView: true,
     };
 
     onMenuPress = () => this.props.toggleNavigation({ isVisible: true });

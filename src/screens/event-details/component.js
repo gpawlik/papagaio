@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import { Image, Linking, TouchableOpacity } from 'react-native';
 
 import { Screen } from '~/components/screen';
 
@@ -9,16 +10,36 @@ import { TitleBox, ContentBox, Title, Description, MetaText, ContentText } from 
 import type { Props } from './types';
 
 export class EventDetailsComponent extends React.PureComponent<Props> {
+    openOrganizerUrl = () => Linking.openURL(this.props.organizerUrl);
+
+    openEventUrl = () => Linking.openURL(this.props.eventUrl);
+
     render() {
-        const { title, description, location, time, content } = this.props;
+        const { title, description, location, time, organizer, content } = this.props;
 
         return (
-            <Screen title={messages.eventDetailsTitle} hasContentScroll>
+            <Screen title={messages.eventDetailsTitle} hasContentScroll isFullWidth>
+                <Image
+                    style={{ width: 400, height: 200 }}
+                    source={{
+                        uri:
+                            'https://scontent.fopo1-1.fna.fbcdn.net/v/t1.0-9/50851667_2080230002068743_2521933452509446144_n.jpg?_nc_cat=100&_nc_ht=scontent.fopo1-1.fna&oh=7d4d4546afd33b5b0ad0744c83b83fb8&oe=5CDFCF14',
+                    }}
+                />
+
                 <TitleBox>
                     <Title message={title} />
                     <Description message={description} />
                     <MetaText message={location} />
                     <MetaText message={time} />
+
+                    <TouchableOpacity onPress={this.openOrganizerUrl}>
+                        <MetaText message={organizer} />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress={this.openEventUrl}>
+                        <MetaText message="Open on Facebook" />
+                    </TouchableOpacity>
                 </TitleBox>
 
                 <ContentBox>

@@ -9,6 +9,10 @@ export type StateProps = {|
     location: string,
     time: string,
     content: string,
+    organizer: string,
+    organizerUrl: string,
+    eventUrl: string,
+    imageUrl: string,
 |};
 
 export type Props = StateProps;

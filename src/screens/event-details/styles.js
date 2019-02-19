@@ -7,6 +7,7 @@ import { selectors } from '~/theme/main';
 
 export const TitleBox = styled.View`
     margin-vertical: ${selectors.ss5};
+    padding-horizontal: ${selectors.ss6};
     border-bottom-width: ${selectors.ss1};
     border-bottom-color: ${selectors.chalk};
 `;
@@ -23,6 +24,7 @@ export const MetaText = styled(TextRegular3)``;
 
 export const ContentBox = styled.View`
     margin-vertical: ${selectors.ss5};
+    padding-horizontal: ${selectors.ss6};
 `;
 
 export const ContentText = styled(TextRegular3)``;

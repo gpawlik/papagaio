@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { getEvents, getHasEvents, getIsLoadingEvents } from '~/domains/events/selectors';
 import { fetchEvents } from '~/domains/events/actions';
-import type { StateProps } from './types';
+import type { StateProps, DispatchProps } from './types';
 
 import { EventListComponent } from './component';
 

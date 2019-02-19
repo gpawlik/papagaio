@@ -3,6 +3,7 @@ import type { Map, List } from 'immutable';
 
 export type StateProps = {|
     events: List<Map<*, *>>,
+    hasEvents: boolean,
     isLoadingEvents: boolean,
 |};
 

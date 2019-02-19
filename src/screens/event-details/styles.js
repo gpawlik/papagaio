@@ -1,9 +1,15 @@
 // @flow
 import styled from 'styled-components/native';
 
+import { CachedImage } from '~/components/cached-image';
 import { TextRegular3, TextRegular4, TextMedium4 } from '~/components/text';
 
 import { selectors } from '~/theme/main';
+
+export const CoverImage = styled(CachedImage)`
+    width: 100%;
+    height: 200;
+`;
 
 export const TitleBox = styled.View`
     margin-vertical: ${selectors.ss5};

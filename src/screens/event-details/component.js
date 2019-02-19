@@ -1,12 +1,12 @@
 // @flow
 import * as React from 'react';
-import { Image, Linking, TouchableOpacity } from 'react-native';
+import { Linking, TouchableOpacity } from 'react-native';
 
 import { Screen } from '~/components/screen';
 
 import { messages } from '~/domains/events/intl';
 
-import { TitleBox, ContentBox, Title, Description, MetaText, ContentText } from './styles';
+import { CoverImage, TitleBox, ContentBox, Title, Description, MetaText, ContentText } from './styles';
 import type { Props } from './types';
 
 export class EventDetailsComponent extends React.PureComponent<Props> {
@@ -19,13 +19,7 @@ export class EventDetailsComponent extends React.PureComponent<Props> {
 
         return (
             <Screen title={messages.eventDetailsTitle} hasContentScroll isFullWidth>
-                <Image
-                    style={{ width: 400, height: 200 }}
-                    source={{
-                        uri:
-                            'https://scontent.fopo1-1.fna.fbcdn.net/v/t1.0-9/50851667_2080230002068743_2521933452509446144_n.jpg?_nc_cat=100&_nc_ht=scontent.fopo1-1.fna&oh=7d4d4546afd33b5b0ad0744c83b83fb8&oe=5CDFCF14',
-                    }}
-                />
+                <CoverImage uri="https://scontent.fopo1-1.fna.fbcdn.net/v/t1.0-9/50851667_2080230002068743_2521933452509446144_n.jpg?_nc_cat=100&_nc_ht=scontent.fopo1-1.fna&oh=7d4d4546afd33b5b0ad0744c83b83fb8&oe=5CDFCF14" />
 
                 <TitleBox>
                     <Title message={title} />

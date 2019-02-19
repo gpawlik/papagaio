@@ -6,4 +6,8 @@ export type StateProps = {|
     isLoadingEvents: boolean,
 |};
 
-export type Props = StateProps;
+export type DispatchProps = {
+    fetchEvents: () => void,
+};
+
+export type Props = StateProps & DispatchProps;

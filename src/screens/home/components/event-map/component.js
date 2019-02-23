@@ -7,17 +7,19 @@ import { CustomCallout } from '~/components/callout';
 import { Zoom } from '~/components/zoom';
 
 import { Container, Map } from './styles';
-import type { Props, MapChangeProps } from './types';
+import type { Props, State, MapChangeProps } from './types';
 
-export class EventMapComponent extends React.PureComponent<Props> {
+export class EventMapComponent extends React.PureComponent<Props, State> {
     state = {
         region: {
-            latitude: this.props.mapCoordinates.get('latitude'),
-            longitude: this.props.mapCoordinates.get('longitude'),
-            latitudeDelta: this.props.mapCoordinates.get('latitudeDelta'),
-            longitudeDelta: this.props.mapCoordinates.get('longitudeDelta'),
+            latitude: this.props.mapCoordinates.get('latitude', 0),
+            longitude: this.props.mapCoordinates.get('longitude', 0),
+            latitudeDelta: this.props.mapCoordinates.get('latitudeDelta', 0),
+            longitudeDelta: this.props.mapCoordinates.get('longitudeDelta', 0),
         },
     };
+
+    map: React.ElementRef<typeof Map>;
 
     onRegionChangeComplete = ({ latitude, longitude, latitudeDelta, longitudeDelta }: MapChangeProps) => {
         this.props.fetchEvents({
@@ -33,13 +35,13 @@ export class EventMapComponent extends React.PureComponent<Props> {
 
     onZoom = (coef: number) => {
         const { region } = this.state;
-        this.zoom = {
+        const zoom = {
             latitude: region.latitude,
             longitude: region.longitude,
             latitudeDelta: region.latitudeDelta * coef,
             longitudeDelta: region.longitudeDelta * coef,
         };
-        this.setState({ region: this.zoom }, this.map.animateToRegion(this.zoom, 100));
+        this.setState({ region: zoom }, this.map.animateToRegion(zoom, 100));
     };
 
     onZoomIn = () => this.onZoom(3 / 2);

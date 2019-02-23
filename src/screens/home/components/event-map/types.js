@@ -21,3 +21,7 @@ export type MapChangeProps = {
     latitudeDelta: number,
     longitudeDelta: number,
 };
+
+export type State = {
+    region: MapChangeProps,
+};

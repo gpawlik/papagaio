@@ -4,6 +4,7 @@ import { Marker } from 'react-native-maps';
 
 import { Marker as CustomMarker } from '~/components/marker';
 import { CustomCallout } from '~/components/callout';
+import { Zoom } from '~/components/zoom';
 
 import { Container, Map } from './styles';
 import type { Props, MapChangeProps } from './types';
@@ -55,6 +56,7 @@ export class EventMapComponent extends React.PureComponent<Props> {
                         </Marker>
                     ))}
                 </Map>
+                <Zoom onZoomIn={() => {}} onZoomOut={() => {}} />
             </Container>
         );
     }

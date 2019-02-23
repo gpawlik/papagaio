@@ -10,6 +10,15 @@ import { Container, Map } from './styles';
 import type { Props, MapChangeProps } from './types';
 
 export class EventMapComponent extends React.PureComponent<Props> {
+    state = {
+        region: {
+            latitude: this.props.mapCoordinates.get('latitude'),
+            longitude: this.props.mapCoordinates.get('longitude'),
+            latitudeDelta: this.props.mapCoordinates.get('latitudeDelta'),
+            longitudeDelta: this.props.mapCoordinates.get('longitudeDelta'),
+        },
+    };
+
     onRegionChangeComplete = ({ latitude, longitude, latitudeDelta, longitudeDelta }: MapChangeProps) => {
         this.props.fetchEvents({
             coordinates: {
@@ -19,20 +28,33 @@ export class EventMapComponent extends React.PureComponent<Props> {
                 maxLng: longitude + longitudeDelta / 2,
             },
         });
+        this.setState(state => ({ region: { ...state.region, latitude, longitude } }));
     };
 
+    onZoom = (coef: number) => {
+        const { region } = this.state;
+        this.zoom = {
+            latitude: region.latitude,
+            longitude: region.longitude,
+            latitudeDelta: region.latitudeDelta * coef,
+            longitudeDelta: region.longitudeDelta * coef,
+        };
+        this.setState({ region: this.zoom }, this.map.animateToRegion(this.zoom, 100));
+    };
+
+    onZoomIn = () => this.onZoom(3 / 2);
+
+    onZoomOut = () => this.onZoom(2 / 3);
+
     render() {
-        const { events, mapCoordinates } = this.props;
+        const { events } = this.props;
+        const { region } = this.state;
 
         return (
             <Container>
                 <Map
-                    initialRegion={{
-                        latitude: mapCoordinates.get('latitude'),
-                        longitude: mapCoordinates.get('longitude'),
-                        latitudeDelta: mapCoordinates.get('latitudeDelta'),
-                        longitudeDelta: mapCoordinates.get('longitudeDelta'),
-                    }}
+                    ref={ref => (this.map = ref)}
+                    initialRegion={region}
                     onRegionChangeComplete={this.onRegionChangeComplete}
                     showsBuildings={false}
                     loadingEnabled
@@ -56,7 +78,7 @@ export class EventMapComponent extends React.PureComponent<Props> {
                         </Marker>
                     ))}
                 </Map>
-                <Zoom onZoomIn={() => {}} onZoomOut={() => {}} />
+                <Zoom onZoomIn={this.onZoomIn} onZoomOut={this.onZoomOut} />
             </Container>
         );
     }

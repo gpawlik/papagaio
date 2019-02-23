@@ -4,11 +4,23 @@ import { Marker } from 'react-native-maps';
 
 import { Marker as CustomMarker } from '~/components/marker';
 import { CustomCallout } from '~/components/callout';
+import { Zoom } from '~/components/zoom';
 
 import { Container, Map } from './styles';
-import type { Props, MapChangeProps } from './types';
+import type { Props, State, MapChangeProps } from './types';
 
-export class EventMapComponent extends React.PureComponent<Props> {
+export class EventMapComponent extends React.PureComponent<Props, State> {
+    state = {
+        region: {
+            latitude: this.props.mapCoordinates.get('latitude', 0),
+            longitude: this.props.mapCoordinates.get('longitude', 0),
+            latitudeDelta: this.props.mapCoordinates.get('latitudeDelta', 0),
+            longitudeDelta: this.props.mapCoordinates.get('longitudeDelta', 0),
+        },
+    };
+
+    map: React.ElementRef<typeof Map>;
+
     onRegionChangeComplete = ({ latitude, longitude, latitudeDelta, longitudeDelta }: MapChangeProps) => {
         this.props.fetchEvents({
             coordinates: {
@@ -18,20 +30,33 @@ export class EventMapComponent extends React.PureComponent<Props> {
                 maxLng: longitude + longitudeDelta / 2,
             },
         });
+        this.setState(state => ({ region: { ...state.region, latitude, longitude } }));
     };
 
+    onZoom = (coef: number) => {
+        const { region } = this.state;
+        const zoom = {
+            latitude: region.latitude,
+            longitude: region.longitude,
+            latitudeDelta: region.latitudeDelta * coef,
+            longitudeDelta: region.longitudeDelta * coef,
+        };
+        this.setState({ region: zoom }, this.map.animateToRegion(zoom, 100));
+    };
+
+    onZoomIn = () => this.onZoom(3 / 2);
+
+    onZoomOut = () => this.onZoom(2 / 3);
+
     render() {
-        const { events, mapCoordinates } = this.props;
+        const { events } = this.props;
+        const { region } = this.state;
 
         return (
             <Container>
                 <Map
-                    initialRegion={{
-                        latitude: mapCoordinates.get('latitude'),
-                        longitude: mapCoordinates.get('longitude'),
-                        latitudeDelta: mapCoordinates.get('latitudeDelta'),
-                        longitudeDelta: mapCoordinates.get('longitudeDelta'),
-                    }}
+                    ref={ref => (this.map = ref)}
+                    initialRegion={region}
                     onRegionChangeComplete={this.onRegionChangeComplete}
                     showsBuildings={false}
                     loadingEnabled
@@ -55,6 +80,7 @@ export class EventMapComponent extends React.PureComponent<Props> {
                         </Marker>
                     ))}
                 </Map>
+                <Zoom onZoomIn={this.onZoomIn} onZoomOut={this.onZoomOut} />
             </Container>
         );
     }

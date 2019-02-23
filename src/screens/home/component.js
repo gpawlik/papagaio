@@ -23,7 +23,7 @@ type State = {
 
 export class HomeComponent extends React.PureComponent<Props, State> {
     state = {
-        isListView: true,
+        isListView: false,
     };
 
     onMenuPress = () => this.props.toggleNavigation({ isVisible: true });

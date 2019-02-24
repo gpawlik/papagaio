@@ -12,6 +12,7 @@ const colors = {
     yellow: '#f7b731',
     green: '#20bf6b',
     turquoise: '#0fb9b1',
+    grey: '#a5b1c2',
 };
 const fontSizes = {
     fs1: '14px',
@@ -64,6 +65,7 @@ const borderRadius = {
     br1: '12px',
     br2: '8px',
     br3: '6px',
+    br4: '4px',
 };
 
 export const theme = [colors, fontSizes, lineHeights, spacerSizes, breakPoints, borderRadius];

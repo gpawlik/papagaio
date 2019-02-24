@@ -3,9 +3,10 @@ import * as React from 'react';
 import * as R from 'ramda';
 import { type $npm$ReactIntl$MessageDescriptor } from 'react-intl';
 
-import { TextRegular2, TextMedium4 } from '~/components/text';
+import { TextRegular2 } from '~/components/text';
+import { Label } from '~/components/label';
 
-import { Container } from './styles';
+import { Container, TagLine, TagText, Title } from './styles';
 
 type Props = {
     title: $npm$ReactIntl$MessageDescriptor | string,
@@ -22,7 +23,11 @@ export const Card = ({ title, organizer, address, onPress }: Props) => {
 
     return (
         <Container onPress={onPress}>
-            <TextMedium4 message={title} />
+            <TagLine>
+                <Label message={'Hello'} />
+                <TagText message={'24 FEB, 12:00-16:00'} />
+            </TagLine>
+            <Title message={title} />
             {directions ? <TextRegular2 message={directions} /> : null}
         </Container>
     );

@@ -6,6 +6,8 @@ import { Marker as CustomMarker } from '~/components/marker';
 import { CustomCallout } from '~/components/callout';
 import { Zoom } from '~/components/zoom';
 
+import { Refresh } from './components/refresh';
+
 import { Container, Map } from './styles';
 import type { Props, State, MapChangeProps } from './types';
 
@@ -17,12 +19,24 @@ export class EventMapComponent extends React.PureComponent<Props, State> {
             latitudeDelta: this.props.mapCoordinates.get('latitudeDelta', 0),
             longitudeDelta: this.props.mapCoordinates.get('longitudeDelta', 0),
         },
+        refreshOnChange: false,
+        hasBeenChanged: false,
     };
 
     map: React.ElementRef<typeof Map>;
+    hasFirstLoaded: boolean = false;
 
-    onRegionChangeComplete = ({ latitude, longitude, latitudeDelta, longitudeDelta }: MapChangeProps) => {
-        this.props.fetchEvents({
+    componentDidMount = () => {
+        !this.props.hasAutoRefresh && this.refreshResults();
+    };
+
+    refreshResults = () => {
+        const { fetchEvents } = this.props;
+        const {
+            region: { latitude, longitude, latitudeDelta, longitudeDelta },
+        } = this.state;
+
+        fetchEvents({
             coordinates: {
                 minLat: latitude - latitudeDelta / 2,
                 maxLat: latitude + latitudeDelta / 2,
@@ -30,7 +44,21 @@ export class EventMapComponent extends React.PureComponent<Props, State> {
                 maxLng: longitude + longitudeDelta / 2,
             },
         });
-        this.setState(state => ({ region: { ...state.region, latitude, longitude } }));
+    };
+
+    onRegionChangeComplete = ({ latitude, longitude, latitudeDelta, longitudeDelta }: MapChangeProps) => {
+        this.setState(
+            state => ({
+                region: { ...state.region, latitude, longitude },
+                hasBeenChanged: this.hasFirstLoaded,
+            }),
+            () => {
+                if (this.props.hasAutoRefresh) {
+                    this.refreshResults();
+                }
+                this.hasFirstLoaded = true;
+            }
+        );
     };
 
     onZoom = (coef: number) => {
@@ -49,8 +77,8 @@ export class EventMapComponent extends React.PureComponent<Props, State> {
     onZoomOut = () => this.onZoom(2 / 3);
 
     render() {
-        const { events } = this.props;
-        const { region } = this.state;
+        const { events, hasAutoRefresh } = this.props;
+        const { region, hasBeenChanged } = this.state;
 
         return (
             <Container>
@@ -80,6 +108,7 @@ export class EventMapComponent extends React.PureComponent<Props, State> {
                         </Marker>
                     ))}
                 </Map>
+                <Refresh isActive={hasBeenChanged && !hasAutoRefresh} onRefresh={this.refreshResults} />
                 <Zoom onZoomIn={this.onZoomIn} onZoomOut={this.onZoomOut} />
             </Container>
         );

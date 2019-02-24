@@ -1,8 +1,5 @@
 // @flow
-import type { List, Map } from 'immutable';
 import type { Coordinates as CoordinatesObject } from '~/domains/filters/types';
-
-type Coordinates = 'latitude' | 'longitude' | 'latitudeDelta' | 'longitudeDelta';
 
 type OwnProps = {
     isActive: boolean,
@@ -10,8 +7,7 @@ type OwnProps = {
 };
 
 export type StateProps = {
-    events: List<Map<*, *>>,
-    mapCoordinates: Map<Coordinates, number>,
+    isRefreshing: boolean,
 };
 
 export type DispatchProps = {

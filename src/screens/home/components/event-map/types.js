@@ -25,4 +25,6 @@ export type MapChangeProps = {
 
 export type State = {
     region: MapChangeProps,
+    refreshOnChange: boolean,
+    hasBeenChanged: boolean,
 };

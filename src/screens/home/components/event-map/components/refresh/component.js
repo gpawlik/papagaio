@@ -2,9 +2,9 @@
 import * as React from 'react';
 
 import { Container, Button, Text } from './styles';
-import type { Props, State } from './types';
+import type { Props } from './types';
 
-export class RefreshComponent extends React.PureComponent<Props, State> {
+export class RefreshComponent extends React.PureComponent<Props> {
     onRefresh = () => {
         const { isActive, isRefreshing, onRefresh } = this.props;
         const isDisabled = !isActive || isRefreshing;

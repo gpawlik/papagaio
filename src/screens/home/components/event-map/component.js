@@ -108,7 +108,7 @@ export class EventMapComponent extends React.PureComponent<Props, State> {
                         </Marker>
                     ))}
                 </Map>
-                <Refresh isActive={hasBeenChanged && !hasAutoRefresh} onRefresh={this.refreshResults} />
+                {!hasAutoRefresh ? <Refresh isActive={hasBeenChanged} onRefresh={this.refreshResults} /> : null}
                 <Zoom onZoomIn={this.onZoomIn} onZoomOut={this.onZoomOut} />
             </Container>
         );

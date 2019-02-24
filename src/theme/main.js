@@ -3,10 +3,15 @@ import * as R from 'ramda';
 
 const colors = {
     slate: 'rgb(51, 73, 91)',
-    orange: 'rgb(255, 122, 0)',
     white: 'rgb(255, 255, 255)',
     chalk: 'rgb(244, 245, 246)',
     midnight: 'rgb(41, 61, 72)',
+    // Taken from: https://flatuicolors.com/palette/de
+    red: '#eb3b5a',
+    orange: '#fa8231',
+    yellow: '#f7b731',
+    green: '#20bf6b',
+    turquoise: '#0fb9b1',
 };
 const fontSizes = {
     fs1: '14px',

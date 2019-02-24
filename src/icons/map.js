@@ -7,6 +7,7 @@ import { Close } from './close';
 import { Menu } from './menu';
 import { MultiChoiceOn } from './multi-choice-on';
 import { MultiChoiceOff } from './multi-choice-off';
+import { Pin } from './pin';
 
 import type { OuterProps } from './types';
 
@@ -16,6 +17,7 @@ export const map = {
     [generalIcons.MENU]: Menu,
     [generalIcons.MULTI_CHOICE_ON]: MultiChoiceOn,
     [generalIcons.MULTI_CHOICE_OFF]: MultiChoiceOff,
+    [generalIcons.PIN]: Pin,
 };
 
 export const getIconComponent = (type: string, props: OuterProps) => {

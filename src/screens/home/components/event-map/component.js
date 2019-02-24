@@ -6,6 +6,8 @@ import { Marker as CustomMarker } from '~/components/marker';
 import { CustomCallout } from '~/components/callout';
 import { Zoom } from '~/components/zoom';
 
+import { Refresh } from './components/refresh';
+
 import { Container, Map } from './styles';
 import type { Props, State, MapChangeProps } from './types';
 
@@ -80,6 +82,7 @@ export class EventMapComponent extends React.PureComponent<Props, State> {
                         </Marker>
                     ))}
                 </Map>
+                <Refresh isActive={false} />
                 <Zoom onZoomIn={this.onZoomIn} onZoomOut={this.onZoomOut} />
             </Container>
         );

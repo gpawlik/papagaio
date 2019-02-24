@@ -6,10 +6,12 @@ import type { Props, State } from './types';
 
 export class RefreshComponent extends React.PureComponent<Props, State> {
     onRefresh = () => {
-        const { isActive, isRefreshing } = this.props;
+        const { isActive, isRefreshing, onRefresh } = this.props;
         const isDisabled = !isActive || isRefreshing;
-        console.log(isDisabled);
+
+        !isDisabled && onRefresh();
     };
+
     render() {
         const { isActive, isRefreshing } = this.props;
         const isDisabled = !isActive || isRefreshing;

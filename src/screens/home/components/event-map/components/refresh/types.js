@@ -6,6 +6,7 @@ type Coordinates = 'latitude' | 'longitude' | 'latitudeDelta' | 'longitudeDelta'
 
 type OwnProps = {
     isActive: boolean,
+    onRefresh: () => void,
 };
 
 export type StateProps = {

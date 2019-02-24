@@ -10,6 +10,7 @@ import { EventMapComponent } from './component';
 export const mapStateToProps = (state: any): StateProps => ({
     events: getEvents(state),
     mapCoordinates: getMapCoordinates(state),
+    hasAutoRefresh: true,
 });
 
 const mapDispatchToProps: DispatchProps = {

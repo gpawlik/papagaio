@@ -14,6 +14,7 @@ export type OuterProps = {|
 
 export type InnerProps = {|
     colour: string,
+    fill: string,
     width: number,
     height: number,
 |};

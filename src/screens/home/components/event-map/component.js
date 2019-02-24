@@ -97,7 +97,7 @@ export class EventMapComponent extends React.PureComponent<Props, State> {
                                 latitude: Number(marker.get('latitude', 0)),
                             }}
                         >
-                            <CustomMarker />
+                            <CustomMarker category={marker.get('category', '')} />
                             <CustomCallout
                                 id={marker.get('id')}
                                 title={marker.get('title')}

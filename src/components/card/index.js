@@ -6,6 +6,8 @@ import { type $npm$ReactIntl$MessageDescriptor } from 'react-intl';
 import { TextRegular2 } from '~/components/text';
 import { Label } from '~/components/label';
 
+import { messages } from '~/domains/filters/intl';
+
 import { Container, TagLine, TagText, Title } from './styles';
 
 type Props = {
@@ -15,7 +17,7 @@ type Props = {
     onPress: () => void | Promise<*>,
 };
 
-export const Card = ({ title, organizer, address, onPress }: Props) => {
+export const Card = ({ title, organizer, category, address, onPress }: Props) => {
     const directions = R.compose(
         R.join(', '),
         R.filter(R.identity)
@@ -24,7 +26,7 @@ export const Card = ({ title, organizer, address, onPress }: Props) => {
     return (
         <Container onPress={onPress}>
             <TagLine>
-                <Label message={'Hello'} />
+                <Label message={messages[category]} />
                 <TagText message={'24 FEB, 12:00-16:00'} />
             </TagLine>
             <Title message={title} />

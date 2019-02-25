@@ -101,7 +101,16 @@ class Navigate {
         }
         try {
             this.isMidTransition = true;
-            await Navigation.pop(this.currentScreenId);
+
+            // Hack for navigation from the map :(
+            console.log(this.screenIdStack.length, this.screenIdStack);
+            if (this.screenIdStack.length !== 2) {
+                await Navigation.pop(this.currentScreenId);
+            } else {
+                this.isMidTransition = false;
+                await Navigation.popToRoot(this.currentScreenId);
+            }
+
             this.isMidTransition = false;
         } catch (error) {
             this.isMidTransition = false;

@@ -12,6 +12,7 @@ import { Container, EventImage, ContentBox, TagLine, TagText, Title } from './st
 
 type Props = {
     title: $npm$ReactIntl$MessageDescriptor | string,
+    imageUrl?: string,
     category: string,
     organizer?: $npm$ReactIntl$MessageDescriptor | string,
     address?: $npm$ReactIntl$MessageDescriptor | string,

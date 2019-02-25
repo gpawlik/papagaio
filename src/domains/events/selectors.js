@@ -73,5 +73,5 @@ export const getEventUrl = createSelector(
 
 export const getImageUrl = createSelector(
     [getEventById],
-    event => event.get('main_image', '')
+    event => event.get('event_image', '')
 );

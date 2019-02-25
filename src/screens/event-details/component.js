@@ -15,11 +15,11 @@ export class EventDetailsComponent extends React.PureComponent<Props> {
     openEventUrl = () => Linking.openURL(this.props.eventUrl);
 
     render() {
-        const { title, description, location, time, organizer, content } = this.props;
+        const { title, description, location, time, organizer, imageUrl, content } = this.props;
 
         return (
             <Screen title={messages.eventDetailsTitle} hasContentScroll isFullWidth>
-                <CoverImage uri="https://scontent.fopo1-1.fna.fbcdn.net/v/t1.0-9/50851667_2080230002068743_2521933452509446144_n.jpg?_nc_cat=100&_nc_ht=scontent.fopo1-1.fna&oh=7d4d4546afd33b5b0ad0744c83b83fb8&oe=5CDFCF14" />
+                <CoverImage uri={imageUrl} />
 
                 <TitleBox>
                     <Title message={title} />

@@ -12,12 +12,13 @@ import { Container, TagLine, TagText, Title } from './styles';
 
 type Props = {
     title: $npm$ReactIntl$MessageDescriptor | string,
-    organizer: $npm$ReactIntl$MessageDescriptor | string,
-    address: $npm$ReactIntl$MessageDescriptor | string,
+    category: string,
+    organizer?: $npm$ReactIntl$MessageDescriptor | string,
+    address?: $npm$ReactIntl$MessageDescriptor | string,
     onPress: () => void | Promise<*>,
 };
 
-export const Card = ({ title, organizer, category, address, onPress }: Props) => {
+export const Card = ({ title, category, organizer, address, onPress }: Props) => {
     const directions = R.compose(
         R.join(', '),
         R.filter(R.identity)

@@ -35,6 +35,7 @@ export class EventListComponent extends React.PureComponent<Props> {
                             title={event.get('title', '')}
                             organizer={event.get('organizer', '')}
                             category={event.get('category', '')}
+                            imageUrl={event.get('event_image', '')}
                             onPress={() => this.handleOpenEvent(id)}
                         />
                     ) : null;

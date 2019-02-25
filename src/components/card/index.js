@@ -8,7 +8,7 @@ import { Label } from '~/components/label';
 
 import { messages } from '~/domains/filters/intl';
 
-import { Container, TagLine, TagText, Title } from './styles';
+import { Container, EventImage, ContentBox, TagLine, TagText, Title } from './styles';
 
 type Props = {
     title: $npm$ReactIntl$MessageDescriptor | string,
@@ -18,7 +18,7 @@ type Props = {
     onPress: () => void | Promise<*>,
 };
 
-export const Card = ({ title, category, organizer, address, onPress }: Props) => {
+export const Card = ({ title, imageUrl, category, organizer, address, onPress }: Props) => {
     const directions = R.compose(
         R.join(', '),
         R.filter(R.identity)
@@ -26,12 +26,15 @@ export const Card = ({ title, category, organizer, address, onPress }: Props) =>
 
     return (
         <Container onPress={onPress}>
-            <TagLine>
-                <Label message={messages[category]} />
-                <TagText message={'24 FEB, 12:00-16:00'} />
-            </TagLine>
-            <Title message={title} />
-            {directions ? <TextRegular2 message={directions} /> : null}
+            <EventImage uri={imageUrl} />
+            <ContentBox>
+                <TagLine>
+                    <Label message={messages[category]} />
+                    <TagText message={'24 FEB, 12:00-16:00'} />
+                </TagLine>
+                <Title message={title} />
+                {directions ? <TextRegular2 message={directions} /> : null}
+            </ContentBox>
         </Container>
     );
 };

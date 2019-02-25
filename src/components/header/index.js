@@ -4,7 +4,7 @@ import type { $npm$ReactIntl$MessageDescriptor } from 'react-intl';
 
 import { TextMedium3 } from '~/components/text';
 import { BackButton } from './back-button';
-import { Container } from './styles';
+import { Container, SideBox } from './styles';
 
 type Props = {|
     title?: $npm$ReactIntl$MessageDescriptor,
@@ -18,8 +18,13 @@ export class Header extends React.PureComponent<Props> {
 
         return (
             <Container>
-                <BackButton backIcon={backIcon} backAction={backAction} />
+                <SideBox>
+                    <BackButton backIcon={backIcon} backAction={backAction} />
+                </SideBox>
+
                 {title ? <TextMedium3 message={title} /> : null}
+
+                <SideBox />
             </Container>
         );
     }

@@ -7,11 +7,12 @@ const colors = {
     chalk: 'rgb(244, 245, 246)',
     midnight: 'rgb(41, 61, 72)',
     // Taken from: https://flatuicolors.com/palette/de
-    red: '#eb3b5a',
-    orange: '#fa8231',
-    yellow: '#f7b731',
-    green: '#20bf6b',
-    turquoise: '#0fb9b1',
+    red: 'rgb(235, 59, 90)',
+    orange: 'rgb(250, 130, 49)',
+    yellow: 'rgb(247, 183, 49)',
+    green: 'rgb(32, 191, 107)',
+    turquoise: 'rgb(15, 185, 177)',
+    grey: 'rgb(165, 177, 194)',
 };
 const fontSizes = {
     fs1: '14px',
@@ -64,6 +65,7 @@ const borderRadius = {
     br1: '12px',
     br2: '8px',
     br3: '6px',
+    br4: '4px',
 };
 
 export const theme = [colors, fontSizes, lineHeights, spacerSizes, breakPoints, borderRadius];

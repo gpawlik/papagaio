@@ -4,7 +4,7 @@ import * as React from 'react';
 import * as routes from '~/constants/routes';
 import { navigate } from '~/navigation';
 import { TextRegular2 } from '~/components/text';
-import { Cell } from '~/components/cell';
+import { Card } from '~/components/card';
 import { generalMessages } from '~/i18n/intl';
 
 import type { Props } from './types';
@@ -30,10 +30,11 @@ export class EventListComponent extends React.PureComponent<Props> {
                     const id = event.get('id');
 
                     return id ? (
-                        <Cell
+                        <Card
                             key={id}
                             title={event.get('title', '')}
-                            description={event.get('description', '')}
+                            organizer={event.get('organizer', '')}
+                            category={event.get('category', '')}
                             onPress={() => this.handleOpenEvent(id)}
                         />
                     ) : null;

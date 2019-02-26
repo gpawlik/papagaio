@@ -32,8 +32,6 @@ export class HomeComponent extends React.PureComponent<Props, State> {
 
     handleShowFilters = () => navigate.showModal(routes.filters);
 
-    handleCreateEvent = () => navigate.showModal(routes.eventCreate);
-
     render() {
         const { isListView } = this.state;
 
@@ -43,8 +41,7 @@ export class HomeComponent extends React.PureComponent<Props, State> {
                 <Header backIcon={generalIcons.MENU} backAction={this.onMenuPress} hasLogo />
                 <ButtonsBar>
                     <Button message={messages.button} onPress={this.handleToggleView} />
-                    <Button message={messages.goToFilters} onPress={this.handleShowFilters} />
-                    <Button message={messages.goToEventCreate} onPress={this.handleCreateEvent} isLast />
+                    <Button message={messages.goToFilters} onPress={this.handleShowFilters} isLast />
                 </ButtonsBar>
                 <Content isFullWidth>{isListView ? <EventList /> : <EventMap />}</Content>
             </Container>

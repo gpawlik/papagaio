@@ -5,6 +5,7 @@ import { generalIcons } from '~/constants/icons/general';
 import { ArrowLeft } from './arrow-left';
 import { Close } from './close';
 import { Menu } from './menu';
+import { Logo } from './logo';
 import { MultiChoiceOn } from './multi-choice-on';
 import { MultiChoiceOff } from './multi-choice-off';
 import { Pin } from './pin';
@@ -14,6 +15,7 @@ import type { OuterProps } from './types';
 export const map = {
     [generalIcons.ARROW_LEFT]: ArrowLeft,
     [generalIcons.CLOSE]: Close,
+    [generalIcons.LOGO]: Logo,
     [generalIcons.MENU]: Menu,
     [generalIcons.MULTI_CHOICE_ON]: MultiChoiceOn,
     [generalIcons.MULTI_CHOICE_OFF]: MultiChoiceOff,

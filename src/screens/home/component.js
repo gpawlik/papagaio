@@ -40,7 +40,7 @@ export class HomeComponent extends React.PureComponent<Props, State> {
         return (
             <Container testID="screen.home">
                 <NavigationMenu />
-                <Header backIcon={generalIcons.MENU} backAction={this.onMenuPress} />
+                <Header backIcon={generalIcons.MENU} backAction={this.onMenuPress} hasLogo />
                 <ButtonsBar>
                     <Button message={messages.button} onPress={this.handleToggleView} />
                     <Button message={messages.goToFilters} onPress={this.handleShowFilters} />

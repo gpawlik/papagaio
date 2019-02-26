@@ -3,8 +3,6 @@ import * as React from 'react';
 
 import { messages } from '~/domains/home/intl';
 
-import * as routes from '~/constants/routes';
-import { navigate } from '~/navigation';
 import { generalIcons } from '~/constants/icons/general';
 import { Header } from '~/components/header';
 import { NavigationMenu } from '~/components/navigation-menu';
@@ -30,8 +28,6 @@ export class HomeComponent extends React.PureComponent<Props, State> {
 
     handleToggleView = () => this.setState((state: State) => ({ isListView: !state.isListView }));
 
-    handleShowFilters = () => navigate.showModal(routes.filters);
-
     render() {
         const { isListView } = this.state;
 
@@ -40,8 +36,7 @@ export class HomeComponent extends React.PureComponent<Props, State> {
                 <NavigationMenu />
                 <Header backIcon={generalIcons.MENU} backAction={this.onMenuPress} hasLogo />
                 <ButtonsBar>
-                    <Button message={messages.button} onPress={this.handleToggleView} />
-                    <Button message={messages.goToFilters} onPress={this.handleShowFilters} isLast />
+                    <Button message={messages.button} onPress={this.handleToggleView} isLast />
                 </ButtonsBar>
                 <Content isFullWidth>{isListView ? <EventList /> : <EventMap />}</Content>
             </Container>

@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Linking, TouchableOpacity } from 'react-native';
 
 import { Screen } from '~/components/screen';
+import { DateBox } from '~/components/date-box';
 
 import { messages } from '~/domains/events/intl';
 
@@ -15,7 +16,7 @@ export class EventDetailsComponent extends React.PureComponent<Props> {
     openEventUrl = () => Linking.openURL(this.props.eventUrl);
 
     render() {
-        const { title, location, time, organizer, imageUrl, content } = this.props;
+        const { title, location, eventStart, organizer, imageUrl, content } = this.props;
 
         return (
             <Screen title={messages.eventDetailsTitle} hasContentScroll isFullWidth>
@@ -23,8 +24,9 @@ export class EventDetailsComponent extends React.PureComponent<Props> {
 
                 <Title message={title} />
                 <MetaBox>
+                    <DateBox time={eventStart} />
                     <MetaText message={location} />
-                    <MetaText message={time} />
+                    <MetaText message={eventStart} />
 
                     <TouchableOpacity onPress={this.openOrganizerUrl}>
                         <MetaText message={organizer} />

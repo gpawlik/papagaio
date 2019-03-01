@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import {
     getEventTitle,
     getEventLocation,
-    getEventTime,
+    getEventStart,
     getEventContent,
     getOrganizer,
     getOrganizerUrl,
@@ -18,7 +18,7 @@ import { EventDetailsComponent } from './component';
 export const mapStateToProps = (state: any, { id }: OwnProps): StateProps => ({
     title: getEventTitle(state, { id }),
     location: getEventLocation(state, { id }),
-    time: getEventTime(state, { id }),
+    eventStart: getEventStart(state, { id }),
     content: getEventContent(state, { id }),
     organizer: getOrganizer(state, { id }),
     organizerUrl: getOrganizerUrl(state, { id }),

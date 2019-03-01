@@ -5,7 +5,6 @@ export type OwnProps = {|
 
 export type StateProps = {|
     title: string,
-    description: string,
     location: string,
     time: string,
     content: string,

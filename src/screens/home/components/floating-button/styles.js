@@ -6,7 +6,7 @@ import { TextRegular3 } from '~/components/text';
 import { selectors } from '~/theme/main';
 
 export const Container = styled.TouchableOpacity`
-    background-color: ${({ color }) => color || selectors.white};
+    background-color: ${selectors.red};
     border-radius: ${selectors.br1};
     padding: ${selectors.ss4} ${selectors.ss8};
     position: absolute;
@@ -14,5 +14,5 @@ export const Container = styled.TouchableOpacity`
 `;
 
 export const Text = styled(TextRegular3)`
-    color: ${({ color }) => (color ? selectors.white : color)};
+    color: ${selectors.white};
 `;

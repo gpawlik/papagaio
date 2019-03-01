@@ -10,10 +10,9 @@ type Props = {
 };
 
 export const FloatingButton = ({ message, onPress }: Props) => {
-    const color = 'red';
     return (
-        <Container color={color} onPress={onPress}>
-            <Text message={message} color={color} />
+        <Container onPress={onPress}>
+            <Text message={message} />
         </Container>
     );
 };

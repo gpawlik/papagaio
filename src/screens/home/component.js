@@ -1,13 +1,9 @@
 // @flow
 import * as React from 'react';
 
-import { messages } from '~/domains/home/intl';
-
 import { generalIcons } from '~/constants/icons/general';
 import { Header } from '~/components/header';
 import { NavigationMenu } from '~/components/navigation-menu';
-import { ButtonsBar } from '~/components/buttons-bar';
-import { Button } from '~/components/buttons-bar/components/button';
 import { Container, Content } from '~/components/screen/styles';
 
 import { EventList } from './components/event-list';
@@ -34,10 +30,13 @@ export class HomeComponent extends React.PureComponent<Props, State> {
         return (
             <Container testID="screen.home">
                 <NavigationMenu />
-                <Header backIcon={generalIcons.MENU} backAction={this.onMenuPress} hasLogo />
-                <ButtonsBar>
-                    <Button message={messages.button} onPress={this.handleToggleView} isLast />
-                </ButtonsBar>
+                <Header
+                    backIcon={generalIcons.MENU}
+                    backAction={this.onMenuPress}
+                    secondaryIcon={generalIcons.PIN}
+                    secondaryAction={this.handleToggleView}
+                    hasLogo
+                />
                 <Content isFullWidth>{isListView ? <EventList /> : <EventMap />}</Content>
             </Container>
         );

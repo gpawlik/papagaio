@@ -7,18 +7,20 @@ import { SVGIcon } from '~/icons';
 import { TextMedium3 } from '~/components/text';
 
 import { BackButton } from './back-button';
-import { Container, SideBox } from './styles';
+import { Container, SideBox, IconContainer } from './styles';
 
 type Props = {|
     title?: $npm$ReactIntl$MessageDescriptor,
-    backIcon?: string,
     hasLogo?: boolean,
+    backIcon?: string,
+    secondaryIcon?: string,
+    secondaryAction?: () => Promise<*> | void,
     backAction?: () => Promise<*> | void,
 |};
 
 export class Header extends React.PureComponent<Props> {
     render() {
-        const { title, hasLogo, backIcon, backAction } = this.props;
+        const { title, hasLogo, backIcon, backAction, secondaryIcon, secondaryAction } = this.props;
 
         return (
             <Container>
@@ -30,7 +32,13 @@ export class Header extends React.PureComponent<Props> {
 
                 {hasLogo ? <SVGIcon type={generalIcons.LOGO} size={36} /> : null}
 
-                <SideBox />
+                <SideBox>
+                    {secondaryIcon ? (
+                        <IconContainer onPress={secondaryAction}>
+                            <SVGIcon type={secondaryIcon} size={24} />
+                        </IconContainer>
+                    ) : null}
+                </SideBox>
             </Container>
         );
     }

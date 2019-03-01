@@ -14,5 +14,12 @@ export const Container = styled.View`
 `;
 
 export const SideBox = styled.View`
-    width: 80;
+    width: 50;
+`;
+
+export const IconContainer = styled.TouchableOpacity`
+    height: 50;
+    width: 50;
+    align-items: center;
+    justify-content: center;
 `;

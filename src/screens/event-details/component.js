@@ -7,7 +7,7 @@ import { DateBox } from '~/components/date-box';
 
 import { messages } from '~/domains/events/intl';
 
-import { CoverImage, ContentBox, Title, MetaBox, MetaText, ContentText } from './styles';
+import { CoverImage, ContentBox, Title, MetaBox, MetaContent, MetaText, ContentText } from './styles';
 import type { Props } from './types';
 
 export class EventDetailsComponent extends React.PureComponent<Props> {
@@ -25,12 +25,13 @@ export class EventDetailsComponent extends React.PureComponent<Props> {
                 <Title message={title} />
                 <MetaBox>
                     <DateBox time={eventStart} />
-                    <MetaText message={location} />
-                    <MetaText message={eventStart} />
-
-                    <TouchableOpacity onPress={this.openOrganizerUrl}>
-                        <MetaText message={organizer} />
-                    </TouchableOpacity>
+                    <MetaContent>
+                        <MetaText message={location} />
+                        <MetaText message={eventStart} />
+                        <TouchableOpacity onPress={this.openOrganizerUrl}>
+                            <MetaText message={organizer} />
+                        </TouchableOpacity>
+                    </MetaContent>
                 </MetaBox>
 
                 <TouchableOpacity onPress={this.openEventUrl}>

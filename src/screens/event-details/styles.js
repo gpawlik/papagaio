@@ -22,6 +22,12 @@ export const MetaBox = styled.View`
     border-top-color: ${selectors.chalk};
     border-bottom-width: 1;
     border-bottom-color: ${selectors.chalk};
+    flex-direction: row;
+    align-items: center;
+`;
+
+export const MetaContent = styled.View`
+    margin-left: ${selectors.ss5};
 `;
 
 export const MetaText = styled(TextRegular3)``;

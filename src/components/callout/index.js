@@ -40,7 +40,7 @@ export class CustomCallout extends React.PureComponent<Props> {
         return (
             <Container>
                 <Touchable onPress={this.handleOpenEvent}>
-                    <DateBox time={start} />
+                    {start ? <DateBox time={start} /> : null}
                     <ContentBox>
                         {title ? <Title message={title} /> : null}
                         <MetaText message={metaText} />

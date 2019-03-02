@@ -6,7 +6,7 @@ export type OwnProps = {|
 export type StateProps = {|
     title: string,
     location: string,
-    eventStart: string,
+    eventStart: number,
     content: string,
     organizer: string,
     organizerUrl: string,

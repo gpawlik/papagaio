@@ -1,16 +1,16 @@
 // @flow
 import * as React from 'react';
+import { ActivityIndicator } from 'react-native';
 
 import * as routes from '~/constants/routes';
 import { navigate } from '~/navigation';
-import { TextRegular2 } from '~/components/text';
 import { Card } from '~/components/card';
-import { generalMessages } from '~/i18n/intl';
 
 import { FloatingButton } from '../floating-button';
+import { NoResults } from './components/no-results';
 
 import type { Props } from './types';
-import { Container, ButtonBox } from './styles';
+import { ScrollContainer, Container, ButtonBox } from './styles';
 
 export class EventListComponent extends React.PureComponent<Props> {
     componentDidMount = () => {
@@ -27,25 +27,34 @@ export class EventListComponent extends React.PureComponent<Props> {
         const { events, isLoadingEvents } = this.props;
 
         return isLoadingEvents ? (
-            <TextRegular2 message={generalMessages.loading} />
+            <Container>
+                <ActivityIndicator />
+            </Container>
         ) : (
             <React.Fragment>
-                <Container>
-                    {events.map(event => {
-                        const id = event.get('id');
+                {events.size ? (
+                    <ScrollContainer>
+                        {events.map(event => {
+                            const id = event.get('id');
 
-                        return id ? (
-                            <Card
-                                key={id}
-                                title={event.get('title', '')}
-                                organizer={event.get('organizer', '')}
-                                category={event.get('category', '')}
-                                imageUrl={event.get('event_image', '')}
-                                onPress={() => this.handleOpenEvent(id)}
-                            />
-                        ) : null;
-                    })}
-                </Container>
+                            return id ? (
+                                <Card
+                                    key={id}
+                                    title={event.get('title', '')}
+                                    organizer={event.get('organizer', '')}
+                                    category={event.get('category', '')}
+                                    imageUrl={event.get('event_image', '')}
+                                    onPress={() => this.handleOpenEvent(id)}
+                                />
+                            ) : null;
+                        })}
+                    </ScrollContainer>
+                ) : (
+                    <Container>
+                        <NoResults />
+                    </Container>
+                )}
+
                 <ButtonBox>
                     <FloatingButton message="Filters" onPress={this.handleShowFilters} />
                 </ButtonBox>

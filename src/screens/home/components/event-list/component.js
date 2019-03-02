@@ -32,7 +32,7 @@ export class EventListComponent extends React.PureComponent<Props> {
             </Container>
         ) : (
             <React.Fragment>
-                {!events.size ? (
+                {events.size ? (
                     <ScrollContainer>
                         {events.map(event => {
                             const id = event.get('id');

@@ -38,13 +38,15 @@ export class EventDetailsComponent extends React.PureComponent<Props> {
                     <Like />
                 </MetaBox>
 
-                <TouchableOpacity onPress={this.openEventUrl}>
-                    <MetaText message="Open on Facebook" />
-                </TouchableOpacity>
-
                 <ContentBox>
                     <ContentText message={content} />
                 </ContentBox>
+
+                <MetaBox isCentered>
+                    <TouchableOpacity onPress={this.openEventUrl}>
+                        <MetaText message="Open on Facebook" />
+                    </TouchableOpacity>
+                </MetaBox>
             </Screen>
         );
     }

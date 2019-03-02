@@ -4,6 +4,7 @@ import { Linking, TouchableOpacity } from 'react-native';
 
 import { Screen } from '~/components/screen';
 import { DateBox } from '~/components/date-box';
+import { RevealBox } from '~/components/reveal-box';
 
 import { messages } from '~/domains/events/intl';
 
@@ -38,9 +39,11 @@ export class EventDetailsComponent extends React.PureComponent<Props> {
                     <Like />
                 </MetaBox>
 
-                <ContentBox>
-                    <ContentText message={content} />
-                </ContentBox>
+                <RevealBox>
+                    <ContentBox>
+                        <ContentText message={content} />
+                    </ContentBox>
+                </RevealBox>
 
                 <MetaBox isCentered>
                     <TouchableOpacity onPress={this.openEventUrl}>

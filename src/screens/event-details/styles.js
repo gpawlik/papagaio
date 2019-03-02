@@ -24,6 +24,7 @@ export const MetaBox = styled.View`
     border-bottom-color: ${selectors.chalk};
     flex-direction: row;
     align-items: center;
+    justify-content: ${({ isCentered }) => (isCentered ? 'center' : 'flex-start')};
 `;
 
 export const MetaContent = styled.View`

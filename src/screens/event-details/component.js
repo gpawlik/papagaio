@@ -2,8 +2,10 @@
 import * as React from 'react';
 import { Linking, TouchableOpacity } from 'react-native';
 
+import { ExternalLink } from '~/components/external-link';
 import { Screen } from '~/components/screen';
 import { DateBox } from '~/components/date-box';
+import { RevealBox } from '~/components/reveal-box';
 
 import { messages } from '~/domains/events/intl';
 
@@ -14,10 +16,8 @@ import type { Props } from './types';
 export class EventDetailsComponent extends React.PureComponent<Props> {
     openOrganizerUrl = () => Linking.openURL(this.props.organizerUrl);
 
-    openEventUrl = () => Linking.openURL(this.props.eventUrl);
-
     render() {
-        const { title, location, eventStart, organizer, imageUrl, content } = this.props;
+        const { title, location, eventStart, organizer, imageUrl, eventUrl, content } = this.props;
 
         return (
             <Screen title={messages.eventDetailsTitle} hasContentScroll isFullWidth>
@@ -38,13 +38,13 @@ export class EventDetailsComponent extends React.PureComponent<Props> {
                     <Like />
                 </MetaBox>
 
-                <TouchableOpacity onPress={this.openEventUrl}>
-                    <MetaText message="Open on Facebook" />
-                </TouchableOpacity>
+                <RevealBox>
+                    <ContentBox>
+                        <ContentText message={content} />
+                    </ContentBox>
+                </RevealBox>
 
-                <ContentBox>
-                    <ContentText message={content} />
-                </ContentBox>
+                <ExternalLink text="Open on Facebook" url={eventUrl} />
             </Screen>
         );
     }

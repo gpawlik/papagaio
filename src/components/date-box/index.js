@@ -5,7 +5,7 @@ import moment from 'moment';
 import { Container, DayBox, DayText, MonthBox, MonthText } from './styles';
 
 type Props = {
-    time: string,
+    time: number,
 };
 
 export const DateBox = ({ time }: Props) => {

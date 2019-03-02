@@ -10,6 +10,7 @@ export const Container = styled.View`
     border-width: 2;
     border-radius: 4;
     width: 45;
+    height: 52;
     align-items: stretch;
 `;
 

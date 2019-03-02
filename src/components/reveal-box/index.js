@@ -9,7 +9,7 @@ type Props = {
 };
 
 type State = {
-    isOpen: false,
+    isOpen: boolean,
 };
 
 export class RevealBox extends React.Component<Props, State> {

@@ -1,12 +1,14 @@
 // @flow
 import * as React from 'react';
-import { TouchableOpacity } from 'react-native';
+import * as R from 'ramda';
 import moment from 'moment';
 
 import * as routes from '~/constants/routes';
 import { navigate } from '~/navigation';
 
-import { Container, Title, Date, MetaText } from './styles';
+import { DateBox } from '~/components/date-box';
+
+import { Container, Touchable, ContentBox, Title, MetaText } from './styles';
 
 type Props = {
     id?: string,
@@ -28,18 +30,22 @@ export class CustomCallout extends React.PureComponent<Props> {
     };
 
     render() {
-        const { title, organizer, start, end } = this.props;
-        const time = `${moment(start).format('DD/MM')}, ${moment(start).format('HH:mm')}-${moment(end).format(
-            'HH:mm'
-        )}`;
+        const { title, organizer, start } = this.props;
+        const time = `${moment(start).format('HH:mm')}`;
+        const metaText = R.compose(
+            R.join(', '),
+            R.filter(R.identity)
+        )([time, organizer]);
 
         return (
             <Container>
-                <TouchableOpacity onPress={this.handleOpenEvent}>
-                    {title ? <Title message={title} /> : null}
-                    <Date message={time} />
-                    {organizer ? <MetaText message={organizer} /> : null}
-                </TouchableOpacity>
+                <Touchable onPress={this.handleOpenEvent}>
+                    <DateBox time={start} />
+                    <ContentBox>
+                        {title ? <Title message={title} /> : null}
+                        <MetaText message={metaText} />
+                    </ContentBox>
+                </Touchable>
             </Container>
         );
     }

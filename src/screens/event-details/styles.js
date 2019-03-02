@@ -16,7 +16,7 @@ export const Title = styled(TextMedium5)`
 `;
 
 export const MetaBox = styled.View`
-    margin: 0 ${selectors.ss5} ${selectors.ss6};
+    margin: 0 ${selectors.ss6} ${selectors.ss5};
     padding-vertical: ${selectors.ss5};
     border-top-width: 1;
     border-top-color: ${selectors.chalk};
@@ -28,6 +28,7 @@ export const MetaBox = styled.View`
 
 export const MetaContent = styled.View`
     margin-left: ${selectors.ss5};
+    flex: 1;
 `;
 
 export const MetaText = styled(TextRegular3)``;

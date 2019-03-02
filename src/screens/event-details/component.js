@@ -2,6 +2,9 @@
 import * as React from 'react';
 import { Linking, TouchableOpacity } from 'react-native';
 
+import { generalIcons } from '~/constants/icons/general';
+import { SVGIcon } from '~/icons';
+
 import { Screen } from '~/components/screen';
 import { DateBox } from '~/components/date-box';
 import { RevealBox } from '~/components/reveal-box';
@@ -9,7 +12,17 @@ import { RevealBox } from '~/components/reveal-box';
 import { messages } from '~/domains/events/intl';
 
 import { Like } from './components/like';
-import { CoverImage, ContentBox, Title, MetaBox, MetaContent, MetaText, ContentText } from './styles';
+import {
+    CoverImage,
+    ContentBox,
+    Title,
+    MetaBox,
+    MetaContent,
+    MetaText,
+    ContentText,
+    ExternalButton,
+    ButtonText,
+} from './styles';
 import type { Props } from './types';
 
 export class EventDetailsComponent extends React.PureComponent<Props> {
@@ -46,9 +59,10 @@ export class EventDetailsComponent extends React.PureComponent<Props> {
                 </RevealBox>
 
                 <MetaBox isCentered>
-                    <TouchableOpacity onPress={this.openEventUrl}>
-                        <MetaText message="Open on Facebook" />
-                    </TouchableOpacity>
+                    <ExternalButton onPress={this.openEventUrl}>
+                        <ButtonText message="Open on Facebook" />
+                        <SVGIcon type={generalIcons.EXTERNAL_LINK} size={14} />
+                    </ExternalButton>
                 </MetaBox>
             </Screen>
         );

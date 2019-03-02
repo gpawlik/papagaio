@@ -2,6 +2,7 @@
 export const generalIcons = {
     ARROW_LEFT: 'ARROW_LEFT',
     CLOSE: 'CLOSE',
+    EXTERNAL_LINK: 'EXTERNAL_LINK',
     HEART: 'HEART',
     LOGO: 'LOGO',
     MENU: 'MENU',

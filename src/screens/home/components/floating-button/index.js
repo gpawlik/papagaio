@@ -6,7 +6,7 @@ import { Container, Text } from './styles';
 
 type Props = {
     message: $npm$ReactIntl$MessageDescriptor | string,
-    onPress: () => void,
+    onPress: () => Promise<*>,
 };
 
 export const FloatingButton = ({ message, onPress }: Props) => {

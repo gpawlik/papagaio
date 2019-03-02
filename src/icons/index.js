@@ -6,10 +6,11 @@ import { getIconComponent } from './map';
 
 import type { Props } from './types';
 
-export const SVGIcon = ({ type, colour = selectors.slate, size = 24 }: Props): React.Node => {
+export const SVGIcon = ({ type, colour = selectors.slate, stroke, size = 24 }: Props): React.Node => {
     const iconProps = {
         colour,
         fill: colour,
+        stroke,
         width: size,
         height: size,
     };

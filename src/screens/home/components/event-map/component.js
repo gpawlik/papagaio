@@ -2,11 +2,14 @@
 import * as React from 'react';
 import { Marker } from 'react-native-maps';
 
+import * as routes from '~/constants/routes';
+import { navigate } from '~/navigation';
 import { Marker as CustomMarker } from '~/components/marker';
 import { CustomCallout } from '~/components/callout';
 import { Zoom } from '~/components/zoom';
 
 import { Refresh } from './components/refresh';
+import { FloatingButton } from '../floating-button';
 
 import { Container, Map } from './styles';
 import type { Props, State, MapChangeProps } from './types';
@@ -76,6 +79,8 @@ export class EventMapComponent extends React.PureComponent<Props, State> {
 
     onZoomOut = () => this.onZoom(2 / 3);
 
+    handleShowFilters = () => navigate.showModal(routes.filters);
+
     render() {
         const { events, hasAutoRefresh } = this.props;
         const { region, hasBeenChanged } = this.state;
@@ -110,6 +115,7 @@ export class EventMapComponent extends React.PureComponent<Props, State> {
                 </Map>
                 {!hasAutoRefresh ? <Refresh isActive={hasBeenChanged} onRefresh={this.refreshResults} /> : null}
                 <Zoom onZoomIn={this.onZoomIn} onZoomOut={this.onZoomOut} />
+                <FloatingButton message="Filters" onPress={this.handleShowFilters} />
             </Container>
         );
     }

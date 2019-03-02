@@ -7,7 +7,7 @@ const colors = {
     chalk: 'rgb(244, 245, 246)',
     midnight: 'rgb(41, 61, 72)',
     // Taken from: https://flatuicolors.com/palette/de
-    red: 'rgb(235, 59, 90)',
+    red: 'rgb(234, 90, 82)',
     orange: 'rgb(250, 130, 49)',
     yellow: 'rgb(247, 183, 49)',
     green: 'rgb(32, 191, 107)',

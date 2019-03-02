@@ -10,4 +10,8 @@ export const messages = defineMessages({
         id: 'menu.about',
         defaultMessage: 'About',
     },
+    createEvent: {
+        id: 'menu.create-event',
+        defaultMessage: 'Create event',
+    },
 });

@@ -4,7 +4,7 @@ import * as React from 'react';
 import { navigate } from '~/navigation';
 import { SVGIcon } from '~/icons';
 import { generalIcons } from '~/constants/icons/general';
-import { Container } from './styles';
+import { IconContainer } from '../styles';
 
 type Props = {|
     backIcon?: string,
@@ -21,9 +21,9 @@ export class BackButton extends React.PureComponent<Props> {
         const { backIcon = generalIcons.ARROW_LEFT } = this.props;
 
         return (
-            <Container onPress={this.goBack} testID="header.button">
+            <IconContainer onPress={this.goBack} testID="header.button">
                 <SVGIcon type={backIcon} size={16} />
-            </Container>
+            </IconContainer>
         );
     }
 }

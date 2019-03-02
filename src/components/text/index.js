@@ -9,6 +9,7 @@ import { selectors } from '~/theme/main';
 
 type Props = {|
     message: $npm$ReactIntl$MessageDescriptor | string,
+    children: $npm$ReactIntl$MessageDescriptor | string,
     style: Object,
 |};
 
@@ -21,18 +22,19 @@ const TextBasic = styled.Text`
         )(size)};
 `;
 
-export const TextDefault = ({ message, style, ...rest }: Props) => {
-    if (typeof message === 'string') {
+export const TextDefault = ({ message, children, style, ...rest }: Props) => {
+    const foo = message || children;
+    if (typeof foo === 'string') {
         return (
             <TextBasic style={style} {...rest}>
-                {message}
+                {foo}
             </TextBasic>
         );
     }
 
-    if (isIntlDescriptor(message)) {
+    if (isIntlDescriptor(foo)) {
         return (
-            <FormattedMessage {...message}>
+            <FormattedMessage {...foo}>
                 {(m: string) => (
                     <TextBasic style={style} {...rest}>
                         {m}

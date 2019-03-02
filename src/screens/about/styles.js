@@ -10,7 +10,9 @@ export const HeaderBox = styled.View`
     align-items: center;
 `;
 
-export const ContentBox = styled.View``;
+export const ContentBox = styled.View`
+    margin-bottom: ${selectors.ss8};
+`;
 
 export const ContentText = styled(TextRegular3)`
     margin-bottom: ${selectors.ss6};

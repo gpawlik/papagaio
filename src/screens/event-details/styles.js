@@ -40,12 +40,3 @@ export const ContentBox = styled.View`
 `;
 
 export const ContentText = styled(TextRegular3)``;
-
-export const ExternalButton = styled.TouchableOpacity`
-    flex-direction: row;
-    align-items: center;
-`;
-
-export const ButtonText = styled(MetaText)`
-    margin-horizontal: ${selectors.ss4};
-`;

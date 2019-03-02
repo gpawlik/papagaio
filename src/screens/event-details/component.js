@@ -2,9 +2,7 @@
 import * as React from 'react';
 import { Linking, TouchableOpacity } from 'react-native';
 
-import { generalIcons } from '~/constants/icons/general';
-import { SVGIcon } from '~/icons';
-
+import { ExternalLink } from '~/components/external-link';
 import { Screen } from '~/components/screen';
 import { DateBox } from '~/components/date-box';
 import { RevealBox } from '~/components/reveal-box';
@@ -12,26 +10,14 @@ import { RevealBox } from '~/components/reveal-box';
 import { messages } from '~/domains/events/intl';
 
 import { Like } from './components/like';
-import {
-    CoverImage,
-    ContentBox,
-    Title,
-    MetaBox,
-    MetaContent,
-    MetaText,
-    ContentText,
-    ExternalButton,
-    ButtonText,
-} from './styles';
+import { CoverImage, ContentBox, Title, MetaBox, MetaContent, MetaText, ContentText } from './styles';
 import type { Props } from './types';
 
 export class EventDetailsComponent extends React.PureComponent<Props> {
     openOrganizerUrl = () => Linking.openURL(this.props.organizerUrl);
 
-    openEventUrl = () => Linking.openURL(this.props.eventUrl);
-
     render() {
-        const { title, location, eventStart, organizer, imageUrl, content } = this.props;
+        const { title, location, eventStart, organizer, imageUrl, eventUrl, content } = this.props;
 
         return (
             <Screen title={messages.eventDetailsTitle} hasContentScroll isFullWidth>
@@ -58,12 +44,7 @@ export class EventDetailsComponent extends React.PureComponent<Props> {
                     </ContentBox>
                 </RevealBox>
 
-                <MetaBox isCentered>
-                    <ExternalButton onPress={this.openEventUrl}>
-                        <ButtonText message="Open on Facebook" />
-                        <SVGIcon type={generalIcons.EXTERNAL_LINK} size={14} />
-                    </ExternalButton>
-                </MetaBox>
+                <ExternalLink text="Open on Facebook" url={eventUrl} />
             </Screen>
         );
     }

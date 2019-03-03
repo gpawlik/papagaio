@@ -42,20 +42,20 @@ export class SelectPickerCell extends React.Component<Props, State> {
 
     render() {
         const { title, options } = this.props;
-        const { state } = this;
+        const { selectedValue, isModalVisible } = this.state;
 
         return (
             <React.Fragment>
                 <SelectionCell
                     title={title}
-                    value={getLabelFromValue(options, state.selectedValue)}
+                    value={getLabelFromValue(options, selectedValue)}
                     onPress={this.onModalToggle}
                 />
                 <SelectPickerModal
                     title={title}
                     options={options}
-                    selectedValue={state.selectedValue}
-                    isModalVisible={state.isModalVisible}
+                    selectedValue={selectedValue}
+                    isModalVisible={isModalVisible}
                     onValueChange={this.onValueChange}
                     onClose={this.onClose}
                 />

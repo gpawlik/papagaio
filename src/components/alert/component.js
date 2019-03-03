@@ -2,11 +2,7 @@
 import * as React from 'react';
 
 import { Container, Text } from './styles';
-
-type Props = {|
-    text?: string,
-    type?: string,
-|};
+import type { Props } from './types';
 
 export const AlertComponent = ({ text, type }: Props) => {
     if (!text) {

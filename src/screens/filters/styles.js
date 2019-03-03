@@ -3,10 +3,6 @@ import styled from 'styled-components/native';
 
 import { selectors } from '~/theme/main';
 
-export const PickerBox = styled.View`
-    height: 250;
-`;
-
 export const ContentBox = styled.ScrollView`
     flex: 1;
 `;

@@ -1,18 +1,24 @@
 // @flow
 import * as React from 'react';
-import { Picker } from 'react-native';
 
 import { navigate } from '~/navigation';
 import { Modal } from '~/components/modal';
 import { Button } from '~/components/button';
-import { Section } from '~/components/section';
+import { SelectPickerCell } from '~/components/select-picker-cell';
 
 import { messages } from '~/domains/filters/intl';
 
 import { CategoryFilter } from './components/category';
 
-import { PickerBox, ContentBox, ButtonBox } from './styles';
+import { ContentBox, ButtonBox } from './styles';
 import type { Props, State } from './types';
+
+const options = [
+    { value: 1, label: 'Next 3 days' },
+    { value: 2, label: 'Next 7 days' },
+    { value: 3, label: 'Next 14 days' },
+    { value: 4, label: 'Next 30 days' },
+];
 
 export class FiltersComponent extends React.PureComponent<Props, State> {
     state = {
@@ -36,7 +42,7 @@ export class FiltersComponent extends React.PureComponent<Props, State> {
         }
     };
 
-    onTimePickerChange = (value: number) => this.setState({ timeSlot: value });
+    onTimePickerChange = (value: string | number) => this.setState({ timeSlot: Number(value) });
 
     hasFiltersChanged = () => {
         const { categories, timeSlot } = this.props;
@@ -54,20 +60,12 @@ export class FiltersComponent extends React.PureComponent<Props, State> {
                 <ContentBox>
                     <CategoryFilter onChange={this.onCategoryChange} categories={categories} />
 
-                    <Section title={messages.timeTitle}>
-                        <PickerBox>
-                            <Picker
-                                selectedValue={this.state.timeSlot}
-                                style={{ height: 250 }}
-                                onValueChange={this.onTimePickerChange}
-                            >
-                                <Picker.Item label="Next 3 days" value={1} />
-                                <Picker.Item label="Next 7 days" value={2} />
-                                <Picker.Item label="Next 14 days" value={3} />
-                                <Picker.Item label="Next 30 days" value={4} />
-                            </Picker>
-                        </PickerBox>
-                    </Section>
+                    <SelectPickerCell
+                        title={messages.timeTitle}
+                        options={options}
+                        defaultValue={1}
+                        onValueChange={this.onTimePickerChange}
+                    />
                 </ContentBox>
 
                 <ButtonBox>

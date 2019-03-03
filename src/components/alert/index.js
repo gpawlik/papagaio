@@ -1,18 +1,13 @@
 // @flow
-import * as React from 'react';
-import { type $npm$ReactIntl$MessageDescriptor } from 'react-intl';
+import { connect } from 'react-redux';
 
-import { Container, Text } from './styles';
+import { getAlertText, getAlertType } from '~/domains/alerts/selectors';
 
-type Props = {|
-    message: $npm$ReactIntl$MessageDescriptor,
-    type: string,
-|};
+import { AlertComponent } from './component';
 
-export const Alert = ({ message, type }: Props) => {
-    return (
-        <Container type={type}>
-            <Text>{message}</Text>
-        </Container>
-    );
-};
+export const mapStateToProps = (state: any): StateProps => ({
+    text: getAlertText(state),
+    type: getAlertType(state),
+});
+
+export const Alert = connect(mapStateToProps)(AlertComponent);

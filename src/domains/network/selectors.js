@@ -8,10 +8,10 @@ const getNetworkState = state => state.network || Map();
 
 export const getConnectionType = createSelector(
     [getNetworkState],
-    state => state.get('connectionType', connectionTypes.UNKNOWN)
+    state => state.get('type', connectionTypes.UNKNOWN)
 );
 
 export const getIsOnline = createSelector(
     [getNetworkState],
-    state => state.get('connectionType') !== connectionTypes.NONE
+    state => state.get('type') !== connectionTypes.NONE
 );

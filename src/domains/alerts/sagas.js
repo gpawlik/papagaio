@@ -3,13 +3,13 @@ import { put, select, takeLatest } from 'redux-saga/effects';
 import { type Effect } from 'redux-saga';
 
 import { setConnectionType } from '~/domains/network/actions';
-import type { ConnectionData } from '~/domains/network/types';
+import type { ConnectionDataPayload } from '~/domains/network/types';
 
 import { getAlertId } from './selectors';
 import { setAlert, resetAlerts } from './actions';
 import { alertTypes, alertCategories } from './constants';
 
-export function* updateNetworkAlert({ payload: { type } = {} }: { payload: ConnectionData }): Generator<Effect, *, *> {
+export function* updateNetworkAlert({ payload: { type } = {} }: ConnectionDataPayload): Generator<Effect, *, *> {
     const currentAlertId = yield select(getAlertId);
 
     if (currentAlertId === alertTypes.DEVICE_OFFLINE && type !== 'none') {

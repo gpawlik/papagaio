@@ -2,10 +2,10 @@
 import * as React from 'react';
 import { Picker as NativePicker } from 'react-native';
 
-import type { State, OptionType } from './types';
+import type { OptionType } from './types';
 
 type Props = {
-    selectedValue: $PropertyType<State, 'selectedValue'>,
+    selectedValue: string | number,
     onValueChange: (itemValue: string | number, itemIndex: number) => void,
     options: OptionType[],
 };

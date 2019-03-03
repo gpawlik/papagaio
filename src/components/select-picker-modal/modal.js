@@ -1,12 +1,16 @@
 // @flow
 import * as React from 'react';
 import { Animated, Easing } from 'react-native';
-import styled from 'styled-components';
-import { selectors } from '~/theme/main';
 import type { LayoutEvent } from 'react-native/Libraries/Types/CoreEventTypes';
+import type { $npm$ReactIntl$MessageDescriptor } from 'react-intl';
+import styled from 'styled-components';
+
+import { selectors } from '~/theme/main';
 import { OverlayModal } from '~/components/overlay-modal';
 import { Button } from '~/components/button';
 import { TextRegular3 } from '~/components/text';
+
+import { messages } from '~/i18n/intl';
 
 const ModalContentWrapper = styled.View`
     flex: 1;
@@ -27,8 +31,8 @@ type Props = {
     isModalVisible: boolean,
     onSave?: () => void,
     onCancel?: () => void,
-    children: React.Element,
-    title?: string | React.Element | $npm$ReactIntl$MessageDescriptor,
+    children: React.Node,
+    title?: string | $npm$ReactIntl$MessageDescriptor,
     onClose: () => void,
 };
 
@@ -42,7 +46,7 @@ export class PickerModal extends React.PureComponent<Props, State> {
         modalContentHeight: 0,
     };
 
-    animate(callback) {
+    animate(callback?: () => void) {
         const currentAnimatedValue = this.animatedValue.__getValue();
 
         const toValue = currentAnimatedValue === 0 ? this.state.modalContentHeight : 0;
@@ -78,7 +82,9 @@ export class PickerModal extends React.PureComponent<Props, State> {
              * The timeout of 0 simply pushes `onSave` around the event loop so
              * it is invoked after the modal is closed
              */
-            setTimeout(onSave, 0);
+            if (typeof onSave === 'function') {
+                setTimeout(onSave, 0);
+            }
         };
         this.animate(closeAndSave);
     };
@@ -102,7 +108,7 @@ export class PickerModal extends React.PureComponent<Props, State> {
                     <ModalContent style={transform}>
                         {title ? <TextRegular3>{title}</TextRegular3> : null}
                         {children}
-                        <Button onPress={this.onSave} message={'Save'} />
+                        <Button onPress={this.onSave} message={messages.save} />
                     </ModalContent>
                 </ModalContentWrapper>
             </OverlayModal>

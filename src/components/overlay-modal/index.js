@@ -8,7 +8,7 @@ import { transparentize } from '~/utils/styles';
 
 type Props = {
     isModalOpen: boolean,
-    children: React.Element,
+    children: React.Node,
     onRequestClose?: () => void,
     animationType?: 'slide' | 'fade' | 'none', // none is default
 };

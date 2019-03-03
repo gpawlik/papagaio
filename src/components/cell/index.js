@@ -17,7 +17,7 @@ type CellProps = TextProps & {
     onPress: () => void | Promise<*>,
 };
 
-type CheckboxCellProps = TextProps & {
+type ValueCellProps = TextProps & {
     value: boolean,
     hasKeyline?: boolean,
     onPress: () => void,
@@ -30,14 +30,14 @@ export const Cell = ({ title, description, hasKeyline, onPress }: CellProps) => 
     </Container>
 );
 
-export const CheckboxCell = ({ title, value, hasKeyline, onPress }: CheckboxCellProps) => (
+export const CheckboxCell = ({ title, value, hasKeyline, onPress }: ValueCellProps) => (
     <RowContainer onPress={onPress} hasKeyline={hasKeyline}>
         <TextRegular3 message={title} />
         <Checkbox value={value} onValueChange={onPress} />
     </RowContainer>
 );
 
-export const SelectionCell = ({ title, value, hasKeyline, onPress }) => (
+export const SelectionCell = ({ title, value, hasKeyline, onPress }: ValueCellProps) => (
     <RowContainer onPress={onPress} hasKeyline={hasKeyline}>
         <TextMedium3>{title}</TextMedium3>
         <TextRegular3>{value}</TextRegular3>

@@ -42,7 +42,7 @@ export class FiltersComponent extends React.PureComponent<Props, State> {
         }
     };
 
-    onTimePickerChange = (value: number) => this.setState({ timeSlot: value });
+    onTimePickerChange = (value: string | number) => this.setState({ timeSlot: Number(value) });
 
     hasFiltersChanged = () => {
         const { categories, timeSlot } = this.props;

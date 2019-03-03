@@ -1,14 +1,16 @@
 // @flow
 import * as React from 'react';
 import * as R from 'ramda';
+import type { $npm$ReactIntl$MessageDescriptor } from 'react-intl';
 
 import { SelectionCell } from '~/components/cell';
 import { SelectPickerModal } from '~/components/select-picker-modal';
 
 type Props = {
-    title: string,
-    options: Array<{ value: string, label: string }>,
-    defaultValue: string,
+    title: $npm$ReactIntl$MessageDescriptor,
+    options: Array<{ value: string | number, label: string }>,
+    onValueChange: (string | number) => void,
+    defaultValue: string | number,
 };
 
 type State = {

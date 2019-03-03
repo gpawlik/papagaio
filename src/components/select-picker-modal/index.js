@@ -1,8 +1,26 @@
 // @flow
 import * as React from 'react';
+import { type $npm$ReactIntl$MessageDescriptor } from 'react-intl';
 
 import { PickerModal } from './modal';
 import { Picker } from './picker';
+
+import type { OptionType } from './types';
+
+export type Props = {
+    selectedValue: string | number,
+    initialValueIndex?: number,
+    onValueChange: (string | number, number) => void,
+    options: Array<OptionType>,
+    isModalVisible: boolean,
+    title: string | $npm$ReactIntl$MessageDescriptor,
+    onClose: () => void,
+};
+
+export type State = {
+    selectedValue: string | number,
+    selectedItemIndex: number,
+};
 
 export class SelectPickerModal extends React.Component<Props, State> {
     state = {

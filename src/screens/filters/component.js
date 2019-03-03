@@ -52,7 +52,7 @@ export class FiltersComponent extends React.PureComponent<Props, State> {
     };
 
     render() {
-        const { categories } = this.state;
+        const { categories, timeSlot } = this.state;
         const hasChanged = this.hasFiltersChanged();
 
         return (
@@ -63,7 +63,7 @@ export class FiltersComponent extends React.PureComponent<Props, State> {
                     <SelectPickerCell
                         title={messages.timeTitle}
                         options={options}
-                        defaultValue={1}
+                        defaultValue={timeSlot}
                         onValueChange={this.onTimePickerChange}
                     />
                 </ContentBox>

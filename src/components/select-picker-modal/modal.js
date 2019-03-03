@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import { selectors } from '~/theme/main';
 import { OverlayModal } from '~/components/overlay-modal';
 import { Button } from '~/components/button';
-import { TextRegular3 } from '~/components/text';
+import { TextMedium3 } from '~/components/text';
 
 import { messages } from '~/i18n/intl';
 
@@ -17,6 +17,10 @@ const ModalContentWrapper = styled.View`
     justify-content: flex-end;
     max-width: 400;
     width: 100%;
+    align-self: center;
+`;
+
+const Title = styled(TextMedium3)`
     align-self: center;
 `;
 
@@ -106,7 +110,7 @@ export class PickerModal extends React.PureComponent<Props, State> {
             <OverlayModal animationType={'none'} isModalOpen={isModalVisible} onRequestClose={this.onClose}>
                 <ModalContentWrapper onLayout={this.onLayout}>
                     <ModalContent style={transform}>
-                        {title ? <TextRegular3>{title}</TextRegular3> : null}
+                        {title ? <Title>{title}</Title> : null}
                         {children}
                         <Button onPress={this.onSave} message={messages.save} />
                     </ModalContent>

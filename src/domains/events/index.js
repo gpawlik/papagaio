@@ -2,7 +2,7 @@
 import { handleActions } from 'redux-actions';
 import { Map as ImmutableMap, List, fromJS } from 'immutable';
 
-import { handleReduce } from '../../utils/handle-reduce';
+import { handleReduce } from '~/utils/handle-reduce';
 
 import { fetchEvents, receiveEvents } from './actions';
 

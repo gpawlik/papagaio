@@ -9,6 +9,11 @@ export const getAlert = createSelector(
     state => state.get('alert', List())
 );
 
+export const getAlertId = createSelector(
+    [getAlert],
+    alert => alert.get('id', '')
+);
+
 export const getAlertText = createSelector(
     [getAlert],
     alert => alert.get('message', '')

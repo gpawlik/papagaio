@@ -6,6 +6,7 @@ import { navigate } from '~/navigation';
 import { Modal } from '~/components/modal';
 import { Button } from '~/components/button';
 import { Section } from '~/components/section';
+import { SelectionCell } from '~/components/cell';
 
 import { messages } from '~/domains/filters/intl';
 
@@ -53,6 +54,8 @@ export class FiltersComponent extends React.PureComponent<Props, State> {
             <Modal title={messages.title} isFullWidth>
                 <ContentBox>
                     <CategoryFilter onChange={this.onCategoryChange} categories={categories} />
+
+                    <SelectionCell title={messages.timeTitle} value="Next 3 days" />
 
                     <Section title={messages.timeTitle}>
                         <PickerBox>
